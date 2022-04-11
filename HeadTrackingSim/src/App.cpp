@@ -1,11 +1,14 @@
 #include "App.h"
 
+#include "utils/Debug.h"
+
 App* App::instance = nullptr;
 
 App::App() : running(true), width(800), height(600)
 {
 	if (!glfwInit())
 	{
+		Debug::error("GLFW initialization failed");
 		terminate();
 		return;
 	}
@@ -24,6 +27,7 @@ App::App() : running(true), width(800), height(600)
 
 	if (!window)
 	{
+		Debug::error("Window creation failed");
 		terminate();
 		return;
 	}
@@ -34,6 +38,7 @@ App::App() : running(true), width(800), height(600)
 
 	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 	{
+		Debug::error("GLAD initialization failed");
 		terminate();
 		return;
 	}
@@ -64,11 +69,11 @@ void App::render()
 
 	if (input->isKeyDown(GLFW_KEY_A))
 	{
-		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+		glClearColor(0.1f, 1.0f, 1.0f, 1.0f);
 	}
 	else
 	{
-		glClearColor(0.1f, 1.0f, 1.0f, 1.0f);
+		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
 	}
 
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -127,5 +132,5 @@ void App::frameBufferResize(GLFWwindow* window, const int width, const int heigh
 void App::invokeInput(GLFWwindow* window, const int key, const int scancode, const int action, const int mods)
 {
 	getInstance()->input->setKeyState(key, action != GLFW_RELEASE);
-	std::cout << window << " " << key << " " << scancode << " " << action << " " << mods << std::endl;
+	Debug::log(std::to_string((int)window) + " " + std::to_string(key) + " " + std::to_string(scancode) + " " + std::to_string(action) + " " + std::to_string(mods));
 }

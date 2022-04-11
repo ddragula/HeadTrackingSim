@@ -22,6 +22,21 @@
     <Filter Include="Pliki źródłowe\vendor\imgui">
       <UniqueIdentifier>{7cb9bd07-6122-4c6b-9ac8-9abb2d5f219d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki źródłowe\graphics">
+      <UniqueIdentifier>{bd7ab468-348b-42aa-8093-2ae655b365c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\graphics">
+      <UniqueIdentifier>{8c8ea08d-9aeb-498a-9f26-b0c5fcfa9596}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki zasobów\shaders">
+      <UniqueIdentifier>{137f3f8c-cef5-49b7-af4f-ddbe7955ad53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\utils">
+      <UniqueIdentifier>{82bc6cc3-22d2-4791-bec4-a8094dd6248c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\utils">
+      <UniqueIdentifier>{5dc11b3d-fb31-4178-995d-8989de249181}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -30,8 +45,20 @@
     <ClCompile Include="src\vendor\glad\glad.c">
       <Filter>Pliki źródłowe\vendor\glad</Filter>
     </ClCompile>
-    <ClCompile Include="src\vendor\imgui\imgui_widgets.cpp">
-      <Filter>Pliki źródłowe\vendor\imgui</Filter>
+    <ClCompile Include="src\App.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Input.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\Shader.cpp">
+      <Filter>Pliki źródłowe\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\FileUtils.cpp">
+      <Filter>Pliki źródłowe\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\Debug.cpp">
+      <Filter>Pliki źródłowe\utils</Filter>
     </ClCompile>
     <ClCompile Include="src\vendor\imgui\imgui.cpp">
       <Filter>Pliki źródłowe\vendor\imgui</Filter>
@@ -51,11 +78,8 @@
     <ClCompile Include="src\vendor\imgui\imgui_tables.cpp">
       <Filter>Pliki źródłowe\vendor\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="src\App.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Input.cpp">
-      <Filter>Pliki źródłowe</Filter>
+    <ClCompile Include="src\vendor\imgui\imgui_widgets.cpp">
+      <Filter>Pliki źródłowe\vendor\imgui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -65,5 +89,22 @@
     <ClInclude Include="src\Input.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
+    <ClInclude Include="src\graphics\Shader.h">
+      <Filter>Pliki nagłówkowe\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\FileUtils.h">
+      <Filter>Pliki nagłówkowe\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\Debug.h">
+      <Filter>Pliki nagłówkowe\utils</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shaders\basic.frag">
+      <Filter>Pliki zasobów\shaders</Filter>
+    </None>
+    <None Include="shaders\basic.vert">
+      <Filter>Pliki zasobów\shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>
