@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Pliki źródłowe">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Pliki zasobów">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Pliki źródłowe\vendor">
+      <UniqueIdentifier>{a9eab557-3437-4817-b4c2-158361bafeb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\vendor\glad">
+      <UniqueIdentifier>{2844338e-0c97-4c3c-af81-129f83a0f4ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\vendor\imgui">
+      <UniqueIdentifier>{7cb9bd07-6122-4c6b-9ac8-9abb2d5f219d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Main.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vendor\glad\glad.c">
+      <Filter>Pliki źródłowe\vendor\glad</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vendor\imgui\imgui_widgets.cpp">
+      <Filter>Pliki źródłowe\vendor\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vendor\imgui\imgui.cpp">
+      <Filter>Pliki źródłowe\vendor\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vendor\imgui\imgui_demo.cpp">
+      <Filter>Pliki źródłowe\vendor\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vendor\imgui\imgui_draw.cpp">
+      <Filter>Pliki źródłowe\vendor\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vendor\imgui\imgui_impl_glfw.cpp">
+      <Filter>Pliki źródłowe\vendor\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vendor\imgui\imgui_impl_opengl3.cpp">
+      <Filter>Pliki źródłowe\vendor\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vendor\imgui\imgui_tables.cpp">
+      <Filter>Pliki źródłowe\vendor\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\App.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\App.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

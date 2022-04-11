@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HeadTrackingSim", "HeadTrackingSim\HeadTrackingSim.vcxproj", "{72C40BD0-A2A7-4F00-A043-E38FED1050F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{72C40BD0-A2A7-4F00-A043-E38FED1050F0}.Debug|x86.ActiveCfg = Debug|Win32
+		{72C40BD0-A2A7-4F00-A043-E38FED1050F0}.Debug|x86.Build.0 = Debug|Win32
+		{72C40BD0-A2A7-4F00-A043-E38FED1050F0}.Release|x86.ActiveCfg = Release|Win32
+		{72C40BD0-A2A7-4F00-A043-E38FED1050F0}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1C72C919-0568-464D-9C80-C2733DE6B83C}
+	EndGlobalSection
+EndGlobal
