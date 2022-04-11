@@ -7,6 +7,9 @@
 #include <imgui/imgui_impl_glfw.h>
 #include <imgui/imgui_impl_opengl3.h>
 
+#include "Input.h"
+
+
 class App
 {
 private:
@@ -18,6 +21,7 @@ public:
 	static App* getInstance();
 	static void terminate();
 	static void frameBufferResize(GLFWwindow* window, int width, int height);
+	static void invokeInput(GLFWwindow* window, int key, int scancode, int action, int mods);
 private:
 	GLFWwindow* window;
 	void update();
@@ -25,6 +29,7 @@ private:
 	bool running;
 	int width;
 	int height;
+	Input *input;
 public:
 	void loop();
 	int getWidth() const;

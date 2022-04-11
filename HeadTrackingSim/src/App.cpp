@@ -20,12 +20,15 @@ App::App() : running(true), width(800), height(600)
 
 	window = glfwCreateWindow(width, height, "Perspective Simulator", nullptr, nullptr);
 
+	input = new Input();
+
 	if (!window)
 	{
 		terminate();
 		return;
 	}
 
+	glfwSetKeyCallback(window, invokeInput);
 	glfwMakeContextCurrent(window);
 	glfwSetFramebufferSizeCallback(window, frameBufferResize);
 
@@ -58,7 +61,16 @@ void App::update()
 
 void App::render()
 {
-	glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+
+	if (input->isKeyDown(GLFW_KEY_A))
+	{
+		glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+	}
+	else
+	{
+		glClearColor(0.1f, 1.0f, 1.0f, 1.0f);
+	}
+
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	glfwSwapBuffers(window);
@@ -66,6 +78,9 @@ void App::render()
 
 App::~App()
 {
+	delete input;
+	input = nullptr;
+
 	glfwDestroyWindow(window);
 	glfwTerminate();
 }
@@ -107,4 +122,10 @@ void App::frameBufferResize(GLFWwindow* window, const int width, const int heigh
 	const auto appInstance = getInstance();
 	appInstance->width = width;
 	appInstance->height = height;
+}
+
+void App::invokeInput(GLFWwindow* window, const int key, const int scancode, const int action, const int mods)
+{
+	getInstance()->input->setKeyState(key, action != GLFW_RELEASE);
+	std::cout << window << " " << key << " " << scancode << " " << action << " " << mods << std::endl;
 }
