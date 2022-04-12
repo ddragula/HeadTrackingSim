@@ -37,6 +37,12 @@
     <Filter Include="Pliki źródłowe\utils">
       <UniqueIdentifier>{5dc11b3d-fb31-4178-995d-8989de249181}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki nagłówkowe\registry">
+      <UniqueIdentifier>{146f176e-8bf3-41a4-b650-da3048b96f41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\registry">
+      <UniqueIdentifier>{83f6c834-fa17-483f-8fc9-d90eef102e5e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -81,6 +87,12 @@
     <ClCompile Include="src\vendor\imgui\imgui_widgets.cpp">
       <Filter>Pliki źródłowe\vendor\imgui</Filter>
     </ClCompile>
+    <ClCompile Include="src\registry\Shaders.cpp">
+      <Filter>Pliki źródłowe\registry</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gui\Gui.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\App.h">
@@ -97,6 +109,12 @@
     </ClInclude>
     <ClInclude Include="src\utils\Debug.h">
       <Filter>Pliki nagłówkowe\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="src\registry\Shaders.h">
+      <Filter>Pliki nagłówkowe\registry</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gui\Gui.h">
+      <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

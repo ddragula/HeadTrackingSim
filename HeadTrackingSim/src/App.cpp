@@ -1,3 +1,4 @@
+#include <glad/glad.h>
 #include "App.h"
 
 #include "utils/Debug.h"
@@ -6,9 +7,10 @@ App* App::instance = nullptr;
 
 App::App() : running(true), width(800), height(600)
 {
+	Debug::log("GLFW initialization has started");
 	if (!glfwInit())
 	{
-		Debug::error("GLFW initialization failed");
+		Debug::error("GLFW initialization has failed");
 		terminate();
 		return;
 	}
@@ -21,6 +23,7 @@ App::App() : running(true), width(800), height(600)
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 #endif
 
+	Debug::log("Creating the window...");
 	window = glfwCreateWindow(width, height, "Perspective Simulator", nullptr, nullptr);
 
 	input = new Input();
@@ -42,6 +45,9 @@ App::App() : running(true), width(800), height(600)
 		terminate();
 		return;
 	}
+
+	shaders.loadAll();
+	gui.initialize(window);
 }
 
 void App::loop()
@@ -49,6 +55,7 @@ void App::loop()
 	while (running)
 	{
 		update();
+		gui.newFrame();
 		render();
 
 		if (glfwWindowShouldClose(window))
@@ -66,7 +73,6 @@ void App::update()
 
 void App::render()
 {
-
 	if (input->isKeyDown(GLFW_KEY_A))
 	{
 		glClearColor(0.1f, 1.0f, 1.0f, 1.0f);
@@ -78,11 +84,16 @@ void App::render()
 
 	glClear(GL_COLOR_BUFFER_BIT);
 
+	gui.render();
+
 	glfwSwapBuffers(window);
 }
 
 App::~App()
 {
+	gui.terminate();
+	shaders.unloadAll();
+
 	delete input;
 	input = nullptr;
 

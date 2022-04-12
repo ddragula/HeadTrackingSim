@@ -1,14 +1,10 @@
 #pragma once
 
-#include <iostream>
-#include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include <imgui/imgui.h>
-#include <imgui/imgui_impl_glfw.h>
-#include <imgui/imgui_impl_opengl3.h>
 
 #include "Input.h"
-
+#include "registry/Shaders.h"
+#include "gui/Gui.h"
 
 class App
 {
@@ -17,11 +13,9 @@ private:
 	~App();
 	static App* instance;
 public:
-	static App* create();
-	static App* getInstance();
-	static void terminate();
-	static void frameBufferResize(GLFWwindow* window, int width, int height);
-	static void invokeInput(GLFWwindow* window, int key, int scancode, int action, int mods);
+	void loop();
+	int getWidth() const;
+	int getHeight() const;
 private:
 	GLFWwindow* window;
 	void update();
@@ -29,9 +23,13 @@ private:
 	bool running;
 	int width;
 	int height;
-	Input *input;
+	Input* input;
+	Shaders shaders;
+	Gui gui;
 public:
-	void loop();
-	int getWidth() const;
-	int getHeight() const;
+	static App* create();
+	static App* getInstance();
+	static void terminate();
+	static void frameBufferResize(GLFWwindow* window, int width, int height);
+	static void invokeInput(GLFWwindow* window, int key, int scancode, int action, int mods);
 };

@@ -9,8 +9,8 @@ class Shader
 {
 public:
 	Shader(const std::string& vertexPath, const std::string& fragmentPath);
-private:
 	void load(const std::string& vertexPath, const std::string& fragmentPath);
+private:
 	void create(const std::string& vertexSource, const std::string& fragmentSource);
 	bool enabled;
 	int id;

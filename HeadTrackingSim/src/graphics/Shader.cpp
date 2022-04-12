@@ -7,6 +7,7 @@
 
 Shader::Shader(const std::string& vertexPath, const std::string& fragmentPath) : enabled(false), id(0)
 {
+	Debug::log("Loading the shader: (vertex: \"" + vertexPath + "\", fragment: \"" + fragmentPath + "\")");
 	load(vertexPath, fragmentPath);
 }
 
