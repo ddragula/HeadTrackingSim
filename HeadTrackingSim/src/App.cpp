@@ -55,7 +55,6 @@ void App::loop()
 	while (running)
 	{
 		update();
-		gui.newFrame();
 		render();
 
 		if (glfwWindowShouldClose(window))
@@ -69,6 +68,8 @@ void App::loop()
 void App::update()
 {
 	glfwPollEvents();
+
+	gui.update();
 }
 
 void App::render()

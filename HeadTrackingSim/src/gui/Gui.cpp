@@ -3,7 +3,9 @@
 #include <imgui/imgui_impl_opengl3.h>
 #include "../utils/Debug.h"
 
-Gui::Gui() = default;
+Gui::Gui() : io(nullptr)
+{
+}
 
 void Gui::initialize(GLFWwindow * window)
 {
@@ -15,36 +17,19 @@ void Gui::initialize(GLFWwindow * window)
 
 	ImGui_ImplGlfw_InitForOpenGL(window, true);
 	ImGui_ImplOpenGL3_Init("#version 460");
+
+	testWindow.initialize(false);
+    menu.initialize(&testWindow.show);
 }
 
-void Gui::newFrame()
+void Gui::update()
 {
 	ImGui_ImplOpenGL3_NewFrame();
 	ImGui_ImplGlfw_NewFrame();
 	ImGui::NewFrame();
 
-    if (ImGui::BeginMainMenuBar())
-    {
-        if (ImGui::BeginMenu("File"))
-        {
-            if (ImGui::MenuItem("Test"))
-            {
-                Debug::log("test");
-            }
-            ImGui::EndMenu();
-        }
-        if (ImGui::BeginMenu("Edit"))
-        {
-            if (ImGui::MenuItem("Undo", "CTRL+Z")) {}
-            if (ImGui::MenuItem("Redo", "CTRL+Y", false, false)) {}  // Disabled item
-            ImGui::Separator();
-            if (ImGui::MenuItem("Cut", "CTRL+X")) {}
-            if (ImGui::MenuItem("Copy", "CTRL+C")) {}
-            if (ImGui::MenuItem("Paste", "CTRL+V")) {}
-            ImGui::EndMenu();
-        }
-        ImGui::EndMainMenuBar();
-    }
+	testWindow.update();
+	menu.update();
 
     ImGui::Render();
 }
@@ -56,6 +41,8 @@ void Gui::render()
 
 void Gui::terminate()
 {
+	menu.terminate();
+
 	ImGui_ImplOpenGL3_Shutdown();
 	ImGui_ImplGlfw_Shutdown();
 	ImGui::DestroyContext();

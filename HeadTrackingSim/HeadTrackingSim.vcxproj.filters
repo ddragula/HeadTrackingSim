@@ -43,6 +43,12 @@
     <Filter Include="Pliki źródłowe\registry">
       <UniqueIdentifier>{83f6c834-fa17-483f-8fc9-d90eef102e5e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki źródłowe\gui">
+      <UniqueIdentifier>{88aad98e-1b1a-4681-bbb1-2f7ac366ffca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\gui">
+      <UniqueIdentifier>{8984749b-3b93-4fa1-9282-b3061c582a13}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -91,6 +97,15 @@
       <Filter>Pliki źródłowe\registry</Filter>
     </ClCompile>
     <ClCompile Include="src\gui\Gui.cpp">
+      <Filter>Pliki źródłowe\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gui\Menu.cpp">
+      <Filter>Pliki źródłowe\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gui\GuiWindow.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gui\TestGuiWindow.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
   </ItemGroup>
@@ -114,6 +129,15 @@
       <Filter>Pliki nagłówkowe\registry</Filter>
     </ClInclude>
     <ClInclude Include="src\gui\Gui.h">
+      <Filter>Pliki nagłówkowe\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gui\Menu.h">
+      <Filter>Pliki nagłówkowe\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gui\GuiWindow.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gui\TestGuiWindow.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>

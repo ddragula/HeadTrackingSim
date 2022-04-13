@@ -3,6 +3,9 @@
 #include <imgui/imgui_impl_glfw.h>
 #include <imgui/imgui.h>
 
+#include "Menu.h"
+#include "TestGuiWindow.h"
+
 class Gui
 {
 public:
@@ -11,8 +14,9 @@ public:
 	void terminate();
 private:
 	ImGuiIO* io;
-	GLFWwindow* window;
+	Menu menu;
+	TestGuiWindow testWindow;
 public:
-	void newFrame();
+	void update();
 	void render();
 };

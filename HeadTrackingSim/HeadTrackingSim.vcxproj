@@ -87,6 +87,9 @@
     <ClCompile Include="src\App.cpp" />
     <ClCompile Include="src\graphics\Shader.cpp" />
     <ClCompile Include="src\gui\Gui.cpp" />
+    <ClCompile Include="src\gui\GuiWindow.cpp" />
+    <ClCompile Include="src\gui\Menu.cpp" />
+    <ClCompile Include="src\gui\TestGuiWindow.cpp" />
     <ClCompile Include="src\Input.cpp" />
     <ClCompile Include="src\Main.cpp" />
     <ClCompile Include="src\registry\Shaders.cpp" />
@@ -105,6 +108,9 @@
     <ClInclude Include="src\App.h" />
     <ClInclude Include="src\graphics\Shader.h" />
     <ClInclude Include="src\gui\Gui.h" />
+    <ClInclude Include="src\gui\GuiWindow.h" />
+    <ClInclude Include="src\gui\Menu.h" />
+    <ClInclude Include="src\gui\TestGuiWindow.h" />
     <ClInclude Include="src\Input.h" />
     <ClInclude Include="src\registry\Shaders.h" />
     <ClInclude Include="src\utils\Debug.h" />
