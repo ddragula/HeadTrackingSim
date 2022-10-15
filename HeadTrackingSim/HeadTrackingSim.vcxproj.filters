@@ -148,5 +148,14 @@
     <None Include="shaders\basic.vert">
       <Filter>Pliki zasobów\shaders</Filter>
     </None>
+    <None Include="shaders\mandelbrot.frag">
+      <Filter>Pliki zasobów\shaders</Filter>
+    </None>
+    <None Include="shaders\fade.vert">
+      <Filter>Pliki zasobów\shaders</Filter>
+    </None>
+    <None Include="shaders\fade.frag">
+      <Filter>Pliki zasobów\shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>
