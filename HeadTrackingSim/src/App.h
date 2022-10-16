@@ -3,7 +3,7 @@
 #include <GLFW/glfw3.h>
 
 #include "Input.h"
-#include "registry/Shaders.h"
+#include "registry/ShadersRegistry.h"
 #include "gui/Gui.h"
 
 class App
@@ -24,7 +24,7 @@ private:
 	int width;
 	int height;
 	Input* input;
-	Shaders shaders;
+	ShadersRegistry shaders;
 	Gui gui;
 public:
 	static App* create();

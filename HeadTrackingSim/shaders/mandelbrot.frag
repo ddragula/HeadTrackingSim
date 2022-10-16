@@ -2,9 +2,9 @@
 
 in vec2 fragCoord;
 
-out vec4 FragColor;
+uniform vec2 iResolution;
 
-vec2 iResolution = vec2(800, 600);
+out vec4 FragColor;
 
 vec3 hsv2rgb(vec3 c)
 {
@@ -41,7 +41,7 @@ void main()
     vec2 zmin = vec2(-2.0, -1.5);
     vec2 zmax = vec2(1.0, 1.5);
 
-    vec2 uv = fragCoord / iResolution.xy;
+    vec2 uv = fragCoord;
     
     float zx = (zmin.x + uv.x * (zmax.x - zmin.x)) * (iResolution.x / iResolution.y);
     float zy = zmin.y + uv.y * (zmax.y - zmin.y);

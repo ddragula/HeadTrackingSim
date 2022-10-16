@@ -93,7 +93,7 @@
     <ClCompile Include="src\vendor\imgui\imgui_widgets.cpp">
       <Filter>Pliki źródłowe\vendor\imgui</Filter>
     </ClCompile>
-    <ClCompile Include="src\registry\Shaders.cpp">
+    <ClCompile Include="src\registry\ShadersRegistry.cpp">
       <Filter>Pliki źródłowe\registry</Filter>
     </ClCompile>
     <ClCompile Include="src\gui\Gui.cpp">
@@ -125,7 +125,7 @@
     <ClInclude Include="src\utils\Debug.h">
       <Filter>Pliki nagłówkowe\utils</Filter>
     </ClInclude>
-    <ClInclude Include="src\registry\Shaders.h">
+    <ClInclude Include="src\registry\ShadersRegistry.h">
       <Filter>Pliki nagłówkowe\registry</Filter>
     </ClInclude>
     <ClInclude Include="src\gui\Gui.h">

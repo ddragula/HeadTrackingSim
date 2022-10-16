@@ -92,7 +92,7 @@
     <ClCompile Include="src\gui\TestGuiWindow.cpp" />
     <ClCompile Include="src\Input.cpp" />
     <ClCompile Include="src\Main.cpp" />
-    <ClCompile Include="src\registry\Shaders.cpp" />
+    <ClCompile Include="src\registry\ShadersRegistry.cpp" />
     <ClCompile Include="src\utils\Debug.cpp" />
     <ClCompile Include="src\utils\FileUtils.cpp" />
     <ClCompile Include="src\vendor\glad\glad.c" />
@@ -112,7 +112,7 @@
     <ClInclude Include="src\gui\Menu.h" />
     <ClInclude Include="src\gui\TestGuiWindow.h" />
     <ClInclude Include="src\Input.h" />
-    <ClInclude Include="src\registry\Shaders.h" />
+    <ClInclude Include="src\registry\ShadersRegistry.h" />
     <ClInclude Include="src\utils\Debug.h" />
     <ClInclude Include="src\utils\FileUtils.h" />
   </ItemGroup>
