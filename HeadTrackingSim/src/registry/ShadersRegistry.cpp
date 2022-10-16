@@ -15,12 +15,13 @@ void ShadersRegistry::loadAll()
 
 void ShadersRegistry::unloadAll()
 {
+	Debug::log("Unloading shaders...");
 	for (auto &record: registry)
 	{
-		Debug::log("Shader (" + std::to_string(record.first) + ") has been unloaded");
 		delete record.second;
 		record.second = nullptr;
 	}
+	Debug::log("Shaders have been unloaded");
 }
 
 

@@ -5,6 +5,7 @@
 #include "Input.h"
 #include "registry/ShadersRegistry.h"
 #include "gui/Gui.h"
+#include "graphics/Model.h"
 
 class App
 {
@@ -26,6 +27,7 @@ private:
 	Input* input;
 	ShadersRegistry shaders;
 	Gui gui;
+	Model testModel;
 public:
 	static App* create();
 	static App* getInstance();

@@ -63,19 +63,7 @@ App::App() : running(true), width(800), height(600)
 		-1.0f,  1.0f, 0.0f,
 	};
 
-	glGenVertexArrays(1, &VAO);
-	glGenBuffers(1, &VBO);
-	glBindVertexArray(VAO);
-
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-	glEnableVertexAttribArray(0);
-
-	glBindBuffer(GL_ARRAY_BUFFER, 0);
-
-	glBindVertexArray(0);
+	testModel.create(vertices, sizeof(vertices));
 
 	// -------------------------------------
 }
@@ -106,10 +94,9 @@ void App::render()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	shaders.enable(Shaders::Mandelbrot);
 	shaders.get(Shaders::Mandelbrot)->setUniform2f("iResolution", width, height);
-	glBindVertexArray(VAO);
-	glDrawArrays(GL_TRIANGLES, 0, 6);
+	shaders.enable(Shaders::Mandelbrot);
+	testModel.draw();
 
 	gui.render();
 
