@@ -5,8 +5,6 @@
 
 App* App::instance = nullptr;
 
-unsigned int VBO, VAO;
-
 App::App() : running(true), width(800), height(600)
 {
 	Debug::log("GLFW initialization has started");
@@ -56,14 +54,23 @@ App::App() : running(true), width(800), height(600)
 	float vertices[] = {
 		-1.0f, -1.0f, 0.0f,
 		-1.0f,  1.0f, 0.0f,
-		 1.0f, -1.0f, 0.0f,
-
 		 1.0f,  1.0f, 0.0f,
 		 1.0f, -1.0f, 0.0f,
-		-1.0f,  1.0f, 0.0f,
 	};
 
-	testModel.create(vertices, sizeof(vertices));
+	unsigned int indices[] = {
+		0, 1, 2,
+		2, 3, 0
+	};
+
+	float tcs[] = {
+		0, 1,
+		0, 0,
+		1, 0,
+		1, 1
+	};
+
+	vertexArray.create(vertices, sizeof(vertices), indices, sizeof(indices), nullptr, 0);
 
 	// -------------------------------------
 }
@@ -96,7 +103,7 @@ void App::render()
 
 	shaders.get(Shaders::Mandelbrot)->setUniform2f("iResolution", width, height);
 	shaders.enable(Shaders::Mandelbrot);
-	testModel.draw();
+	vertexArray.render();
 
 	gui.render();
 

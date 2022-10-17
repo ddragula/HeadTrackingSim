@@ -85,7 +85,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\App.cpp" />
-    <ClCompile Include="src\graphics\Model.cpp" />
+    <ClCompile Include="src\graphics\VertexArray.cpp" />
     <ClCompile Include="src\graphics\Shader.cpp" />
     <ClCompile Include="src\gui\Gui.cpp" />
     <ClCompile Include="src\gui\GuiWindow.cpp" />
@@ -107,7 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\App.h" />
-    <ClInclude Include="src\graphics\Model.h" />
+    <ClInclude Include="src\graphics\VertexArray.h" />
     <ClInclude Include="src\graphics\Shader.h" />
     <ClInclude Include="src\gui\Gui.h" />
     <ClInclude Include="src\gui\GuiWindow.h" />

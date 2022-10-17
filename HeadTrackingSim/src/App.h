@@ -5,7 +5,7 @@
 #include "Input.h"
 #include "registry/ShadersRegistry.h"
 #include "gui/Gui.h"
-#include "graphics/Model.h"
+#include "graphics/VertexArray.h"
 
 class App
 {
@@ -27,7 +27,7 @@ private:
 	Input* input;
 	ShadersRegistry shaders;
 	Gui gui;
-	Model testModel;
+	VertexArray vertexArray;
 public:
 	static App* create();
 	static App* getInstance();
