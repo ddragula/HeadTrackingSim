@@ -46,7 +46,7 @@ App::App() : running(true), width(800), height(600)
 		return;
 	}
 
-	shaders.loadAll();
+	ShadersRegistry::loadAll();
 	gui.initialize(window);
 
 	// ----------------- TEST -------------------
@@ -101,8 +101,8 @@ void App::render()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	shaders.get(Shaders::Mandelbrot)->setUniform2f("iResolution", width, height);
-	shaders.enable(Shaders::Mandelbrot);
+	ShadersRegistry::get(Shaders::Mandelbrot)->setUniform2f("iResolution", width, height);
+	ShadersRegistry::enable(Shaders::Mandelbrot);
 	vertexArray.render();
 
 	gui.render();
@@ -113,7 +113,7 @@ void App::render()
 App::~App()
 {
 	gui.terminate();
-	shaders.unloadAll();
+	ShadersRegistry::unloadAll();
 
 	delete input;
 	input = nullptr;

@@ -2,7 +2,7 @@
 
 #include "../utils/Debug.h";
 
-ShadersRegistry::ShadersRegistry() = default;
+std::unordered_map<Shaders, Shader*> ShadersRegistry::registry;
 
 void ShadersRegistry::loadAll()
 {

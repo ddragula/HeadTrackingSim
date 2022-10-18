@@ -25,7 +25,6 @@ private:
 	int width;
 	int height;
 	Input* input;
-	ShadersRegistry shaders;
 	Gui gui;
 	VertexArray vertexArray;
 public:

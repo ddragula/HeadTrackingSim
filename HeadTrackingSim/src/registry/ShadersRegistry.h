@@ -13,14 +13,14 @@ enum Shaders {
 
 class ShadersRegistry
 {
-public:
-	ShadersRegistry();
-
-	void loadAll();
-	void unloadAll();
-	void enable(Shaders shader);
-	void disable(Shaders shader);
-	Shader* get(Shaders shader);
 private:
-	std::unordered_map<Shaders, Shader*> registry;
+	ShadersRegistry() = delete;
+public:
+	static void loadAll();
+	static void unloadAll();
+	static void enable(Shaders shader);
+	static void disable(Shaders shader);
+	static Shader* get(Shaders shader);
+private:
+	static std::unordered_map<Shaders, Shader*> registry;
 };

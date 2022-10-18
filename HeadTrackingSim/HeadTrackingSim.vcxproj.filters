@@ -49,6 +49,12 @@
     <Filter Include="Pliki nagłówkowe\gui">
       <UniqueIdentifier>{8984749b-3b93-4fa1-9282-b3061c582a13}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki nagłówkowe\world">
+      <UniqueIdentifier>{7a224698-664d-49eb-98e3-7cf6aa4c56af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\world">
+      <UniqueIdentifier>{264f6eef-ed38-4bd5-81e7-24e59d7e8b53}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -108,8 +114,14 @@
     <ClCompile Include="src\gui\TestGuiWindow.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
+    <ClCompile Include="src\world\Object.cpp">
+      <Filter>Pliki źródłowe\world</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\Model.cpp">
+      <Filter>Pliki źródłowe\graphics</Filter>
+    </ClCompile>
     <ClCompile Include="src\graphics\VertexArray.cpp">
-      <Filter>Pliki źródłowe</Filter>
+      <Filter>Pliki źródłowe\graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -144,7 +156,13 @@
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
     <ClInclude Include="src\graphics\VertexArray.h">
-      <Filter>Pliki nagłówkowe</Filter>
+      <Filter>Pliki nagłówkowe\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\world\Object.h">
+      <Filter>Pliki nagłówkowe\world</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\Model.h">
+      <Filter>Pliki nagłówkowe\graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
