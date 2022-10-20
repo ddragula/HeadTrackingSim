@@ -117,11 +117,11 @@
     <ClCompile Include="src\world\Object.cpp">
       <Filter>Pliki źródłowe\world</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\Model.cpp">
-      <Filter>Pliki źródłowe\graphics</Filter>
-    </ClCompile>
     <ClCompile Include="src\graphics\VertexArray.cpp">
       <Filter>Pliki źródłowe\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\world\Models\Model.cpp">
+      <Filter>Pliki źródłowe</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -161,8 +161,8 @@
     <ClInclude Include="src\world\Object.h">
       <Filter>Pliki nagłówkowe\world</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\Model.h">
-      <Filter>Pliki nagłówkowe\graphics</Filter>
+    <ClInclude Include="src\world\Models\Model.h">
+      <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

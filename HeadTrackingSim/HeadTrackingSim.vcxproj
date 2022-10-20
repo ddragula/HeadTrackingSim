@@ -85,7 +85,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\App.cpp" />
-    <ClCompile Include="src\graphics\Model.cpp" />
     <ClCompile Include="src\graphics\VertexArray.cpp" />
     <ClCompile Include="src\graphics\Shader.cpp" />
     <ClCompile Include="src\gui\Gui.cpp" />
@@ -105,11 +104,11 @@
     <ClCompile Include="src\vendor\imgui\imgui_impl_opengl3.cpp" />
     <ClCompile Include="src\vendor\imgui\imgui_tables.cpp" />
     <ClCompile Include="src\vendor\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="src\world\Models\Model.cpp" />
     <ClCompile Include="src\world\Object.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\App.h" />
-    <ClInclude Include="src\graphics\Model.h" />
     <ClInclude Include="src\graphics\VertexArray.h" />
     <ClInclude Include="src\graphics\Shader.h" />
     <ClInclude Include="src\gui\Gui.h" />
@@ -120,6 +119,7 @@
     <ClInclude Include="src\registry\ShadersRegistry.h" />
     <ClInclude Include="src\utils\Debug.h" />
     <ClInclude Include="src\utils\FileUtils.h" />
+    <ClInclude Include="src\world\Models\Model.h" />
     <ClInclude Include="src\world\Object.h" />
   </ItemGroup>
   <ItemGroup>

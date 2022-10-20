@@ -70,7 +70,7 @@ App::App() : running(true), width(800), height(600)
 		1, 1
 	};
 
-	vertexArray.create(vertices, sizeof(vertices), indices, sizeof(indices), nullptr, 0);
+	vertexArray.create(vertices, sizeof(vertices), indices, sizeof(indices), tcs, sizeof(tcs));
 
 	// -------------------------------------
 }
@@ -101,7 +101,7 @@ void App::render()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	ShadersRegistry::get(Shaders::Mandelbrot)->setUniform2f("iResolution", width, height);
+	ShadersRegistry::get(Shaders::Mandelbrot)->setUniform2f("iResolution", (float)width, (float)height);
 	ShadersRegistry::enable(Shaders::Mandelbrot);
 	vertexArray.render();
 
