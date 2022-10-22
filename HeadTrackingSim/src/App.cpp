@@ -2,6 +2,7 @@
 #include "App.h"
 
 #include "utils/Debug.h"
+#include "registry/ShadersRegistry.h"
 
 App* App::instance = nullptr;
 
@@ -48,31 +49,7 @@ App::App() : running(true), width(800), height(600)
 
 	ShadersRegistry::loadAll();
 	gui.initialize(window);
-
-	// ----------------- TEST -------------------
-
-	float vertices[] = {
-		-1.0f, -1.0f, 0.0f,
-		-1.0f,  1.0f, 0.0f,
-		 1.0f,  1.0f, 0.0f,
-		 1.0f, -1.0f, 0.0f,
-	};
-
-	unsigned int indices[] = {
-		0, 1, 2,
-		2, 3, 0
-	};
-
-	float tcs[] = {
-		0, 1,
-		0, 0,
-		1, 0,
-		1, 1
-	};
-
-	vertexArray.create(vertices, sizeof(vertices), indices, sizeof(indices), tcs, sizeof(tcs));
-
-	// -------------------------------------
+	world.start();
 }
 
 void App::loop()
@@ -95,16 +72,14 @@ void App::update()
 	glfwPollEvents();
 
 	gui.update();
+	world.update();
 }
 
 void App::render()
 {
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	ShadersRegistry::get(Shaders::Mandelbrot)->setUniform2f("iResolution", (float)width, (float)height);
-	ShadersRegistry::enable(Shaders::Mandelbrot);
-	vertexArray.render();
-
+	world.render();
 	gui.render();
 
 	glfwSwapBuffers(window);

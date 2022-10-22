@@ -3,9 +3,8 @@
 #include <GLFW/glfw3.h>
 
 #include "Input.h"
-#include "registry/ShadersRegistry.h"
 #include "gui/Gui.h"
-#include "graphics/VertexArray.h"
+#include "world/World.h"
 
 class App
 {
@@ -26,7 +25,7 @@ private:
 	int height;
 	Input* input;
 	Gui gui;
-	VertexArray vertexArray;
+	World world;
 public:
 	static App* create();
 	static App* getInstance();

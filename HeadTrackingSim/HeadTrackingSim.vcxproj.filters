@@ -114,13 +114,22 @@
     <ClCompile Include="src\gui\TestGuiWindow.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="src\world\Object.cpp">
+    <ClCompile Include="src\graphics\Object.cpp">
       <Filter>Pliki źródłowe\world</Filter>
     </ClCompile>
     <ClCompile Include="src\graphics\VertexArray.cpp">
       <Filter>Pliki źródłowe\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="src\world\Models\Model.cpp">
+    <ClCompile Include="src\graphics\models\Model.cpp">
+      <Filter>Pliki źródłowe\world</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\models\Cube.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\models\Plane.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="src\world\World.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
   </ItemGroup>
@@ -158,10 +167,22 @@
     <ClInclude Include="src\graphics\VertexArray.h">
       <Filter>Pliki nagłówkowe\graphics</Filter>
     </ClInclude>
-    <ClInclude Include="src\world\Object.h">
+    <ClInclude Include="src\graphics\Object.h">
       <Filter>Pliki nagłówkowe\world</Filter>
     </ClInclude>
-    <ClInclude Include="src\world\Models\Model.h">
+    <ClInclude Include="src\graphics\models\Model.h">
+      <Filter>Pliki nagłówkowe\world</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\models\Cube.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\models\Plane.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="src\world\World.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\models\models.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>

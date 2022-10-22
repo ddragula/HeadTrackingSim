@@ -1,12 +1,12 @@
 #include "VertexArray.h"
 #include <glad/glad.h>
 
-VertexArray::VertexArray() : vao(0), vbo(0), tbo(0), ibo(0), count(0) {}
-
 unsigned int VertexArray::VERTEX_ATTRIB = 0;
 unsigned int VertexArray::TCOORD_ATTRIB = 1;
 
-void VertexArray::create(float vertices[], size_t verticesSize, unsigned int indices[], size_t indicesSize, float uv[], size_t uvSize)
+VertexArray::VertexArray() : vao(0), vbo(0), tbo(0), ibo(0), count(0) {}
+
+VertexArray::VertexArray(float vertices[], size_t verticesSize, unsigned int indices[], size_t indicesSize, float uv[], size_t uvSize) : VertexArray()
 {
 	if (indices == nullptr)
 	{

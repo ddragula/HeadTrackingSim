@@ -1,5 +1,7 @@
 #include "Model.h"
 
+#include "../../App.h"
+
 Model::Model() : Object(), shader(nullptr), vertexArray(nullptr) {}
 
 Model::Model(const std::string& name) : Object(name), shader(nullptr), vertexArray(nullptr) {}
@@ -26,6 +28,7 @@ void Model::setShader(Shader* shader)
 void Model::render() const
 {
 	shader->enable();
+	shader->setUniform2f("wndRes", App::getInstance()->getWidth(), App::getInstance()->getHeight());
 	vertexArray->render();
 }
 

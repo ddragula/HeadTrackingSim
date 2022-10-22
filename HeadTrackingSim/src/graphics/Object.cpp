@@ -2,9 +2,9 @@
 #include "../utils/Debug.h";
 #include <algorithm>
 
-Object::Object() : name("unnamed-object"), position(0, 0, 0), rotation(0, 0, 0), parent(nullptr), children() {}
+Object::Object() : Object("unnamed-object") {}
 
-Object::Object(const std::string& name) : name(name), position(0, 0, 0), rotation(0, 0, 0), parent(nullptr), children() {}
+Object::Object(const std::string& name) : Object(name, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f)) {}
 
 Object::Object(const std::string& name, const glm::vec3& position, const glm::vec3& rotation)
 	: name(name), position(position), rotation(rotation), parent(nullptr), children() {}

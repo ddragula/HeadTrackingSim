@@ -8,7 +8,7 @@ public:
 	static unsigned int TCOORD_ATTRIB;
 public:
 	VertexArray();
-	void create(float vertices[], size_t verticesSize, unsigned int indices[], size_t indicesSize, float uv[], size_t uvSize);
+	VertexArray(float vertices[], size_t verticesSize, unsigned int indices[], size_t indicesSize, float uv[], size_t uvSize);
 	void bind();
 	void unbind();
 	void draw();
