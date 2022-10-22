@@ -55,6 +55,18 @@
     <Filter Include="Pliki źródłowe\world">
       <UniqueIdentifier>{264f6eef-ed38-4bd5-81e7-24e59d7e8b53}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki nagłówkowe\graphics\objects">
+      <UniqueIdentifier>{c9a0dce2-46ba-47eb-b75c-72f684df2c47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\graphics\objects\models">
+      <UniqueIdentifier>{08b1d2a6-fb32-452b-9a6f-8f2140811833}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\graphics\objects">
+      <UniqueIdentifier>{74737c47-fd04-417c-8ad4-d135574d2c83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki źródłowe\graphics\objects\models">
+      <UniqueIdentifier>{47d2ea37-7c9c-469c-bd47-dfb76950de32}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
@@ -114,26 +126,26 @@
     <ClCompile Include="src\gui\TestGuiWindow.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\objects\Object.cpp">
-      <Filter>Pliki źródłowe\world</Filter>
-    </ClCompile>
     <ClCompile Include="src\graphics\VertexArray.cpp">
       <Filter>Pliki źródłowe\graphics</Filter>
     </ClCompile>
     <ClCompile Include="src\graphics\objects\models\Model.cpp">
-      <Filter>Pliki źródłowe\world</Filter>
+      <Filter>Pliki źródłowe\graphics\objects\models</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\objects\models\Cube.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
-    <ClCompile Include="src\graphics\objects\models\Plane.cpp">
-      <Filter>Pliki źródłowe</Filter>
+    <ClCompile Include="src\graphics\objects\Object.cpp">
+      <Filter>Pliki źródłowe\graphics\objects</Filter>
     </ClCompile>
     <ClCompile Include="src\world\World.cpp">
-      <Filter>Pliki źródłowe</Filter>
+      <Filter>Pliki źródłowe\world</Filter>
     </ClCompile>
     <ClCompile Include="src\graphics\objects\Camera.cpp">
-      <Filter>Pliki źródłowe</Filter>
+      <Filter>Pliki źródłowe\graphics\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\objects\models\Plane.cpp">
+      <Filter>Pliki źródłowe\graphics\objects\models</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\objects\models\Cube.cpp">
+      <Filter>Pliki źródłowe\graphics\objects\models</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -171,25 +183,25 @@
       <Filter>Pliki nagłówkowe\graphics</Filter>
     </ClInclude>
     <ClInclude Include="src\graphics\objects\Object.h">
-      <Filter>Pliki nagłówkowe\world</Filter>
+      <Filter>Pliki nagłówkowe\graphics\objects</Filter>
     </ClInclude>
     <ClInclude Include="src\graphics\objects\models\Model.h">
-      <Filter>Pliki nagłówkowe\world</Filter>
-    </ClInclude>
-    <ClInclude Include="src\graphics\objects\models\Cube.h">
-      <Filter>Pliki nagłówkowe</Filter>
+      <Filter>Pliki nagłówkowe\graphics\objects\models</Filter>
     </ClInclude>
     <ClInclude Include="src\graphics\objects\models\Plane.h">
-      <Filter>Pliki nagłówkowe</Filter>
+      <Filter>Pliki nagłówkowe\graphics\objects\models</Filter>
     </ClInclude>
-    <ClInclude Include="src\world\World.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="src\graphics\objects\models\models.h">
-      <Filter>Pliki nagłówkowe</Filter>
+    <ClInclude Include="src\graphics\objects\models\Cube.h">
+      <Filter>Pliki nagłówkowe\graphics\objects\models</Filter>
     </ClInclude>
     <ClInclude Include="src\graphics\objects\Camera.h">
-      <Filter>Pliki nagłówkowe</Filter>
+      <Filter>Pliki nagłówkowe\graphics\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\objects\models\models.h">
+      <Filter>Pliki nagłówkowe\graphics\objects\models</Filter>
+    </ClInclude>
+    <ClInclude Include="src\world\World.h">
+      <Filter>Pliki nagłówkowe\world</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -4,9 +4,17 @@
 #include "utils/Debug.h"
 #include "registry/ShadersRegistry.h"
 
+#ifdef _WIN32
+#include <windows.h>
+#define delay(ms) Sleep(ms)
+#else
+#include <unistd.h>
+#define delay(ms) usleep(ms * 1000)
+#endif
+
 App* App::instance = nullptr;
 
-App::App() : running(true), width(800), height(600)
+App::App() : running(true), width(800), height(600), frameCap(0)
 {
 	Debug::log("GLFW initialization has started");
 	if (!glfwInit())
@@ -54,9 +62,15 @@ App::App() : running(true), width(800), height(600)
 
 void App::loop()
 {
+	double lastFrame = glfwGetTime();
+
 	while (running)
 	{
-		update();
+		const double now = glfwGetTime();
+		const double frameTime = now - lastFrame;
+		lastFrame = now;
+
+		update(frameTime);
 		render();
 
 		if (glfwWindowShouldClose(window))
@@ -64,15 +78,20 @@ void App::loop()
 			running = false;
 			break;
 		}
+
+		if (frameCap > 0.0f && frameTime < frameCap)
+		{
+			delay(static_cast<unsigned long>((frameCap - frameTime) * 1000.0));
+		}
 	}
 }
 
-void App::update()
+void App::update(double deltaTime)
 {
 	glfwPollEvents();
 
 	gui.update();
-	world.update();
+	world.update(deltaTime);
 }
 
 void App::render()

@@ -20,10 +20,21 @@ void World::start()
 	parent->addChild(mandelbrotPlane);
 }
 
-void World::update()
+void World::update(double deltaTime)
 {
+	static unsigned int n = 0;
+	static double time = 0;
 	mandelbrotPlane->rotate({ 0.0f, 0.05f, 0.0f });
 	parent->rotate({ 0.0f, 0.0f, 0.05f });
+
+	if ((int)time != (int)(time + deltaTime))
+	{
+		Debug::log(std::to_string(n));
+		n = 0;
+	}
+
+	time += deltaTime;
+	n++;
 }
 
 void World::render() const

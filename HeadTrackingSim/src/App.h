@@ -18,7 +18,7 @@ public:
 	int getHeight() const;
 private:
 	GLFWwindow* window;
-	void update();
+	void update(double deltaTime);
 	void render();
 	bool running;
 	int width;
@@ -26,6 +26,7 @@ private:
 	Input* input;
 	Gui gui;
 	World world;
+	double frameCap;
 public:
 	static App* create();
 	static App* getInstance();
