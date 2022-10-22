@@ -14,7 +14,7 @@
 
 App* App::instance = nullptr;
 
-App::App() : running(true), width(800), height(600), frameCap(0)
+App::App() : running(true), width(800), height(600), frameCap(1.0 / 60.0)
 {
 	Debug::log("GLFW initialization has started");
 	if (!glfwInit())
@@ -79,14 +79,14 @@ void App::loop()
 			break;
 		}
 
-		if (frameCap > 0.0f && frameTime < frameCap)
+		if (frameTime < frameCap)
 		{
 			delay(static_cast<unsigned long>((frameCap - frameTime) * 1000.0));
 		}
 	}
 }
 
-void App::update(double deltaTime)
+void App::update(const double deltaTime)
 {
 	glfwPollEvents();
 

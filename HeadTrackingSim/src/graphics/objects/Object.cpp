@@ -94,7 +94,7 @@ unsigned int Object::getChildrenAmount() const
 	return this->children.size();
 }
 
-glm::mat4 Object::renderSelf(glm::mat4 model) const
+glm::mat4 Object::renderSelf(const glm::mat4& model) const
 {
 	return modelTransform(model);
 }
@@ -104,19 +104,19 @@ void Object::render() const
 	render(glm::mat4(1.0f));
 }
 
-void Object::render(glm::mat4 model) const
+void Object::render(const glm::mat4& model) const
 {
 	if (isEnabled())
 	{
-		glm::mat4 nm = renderSelf(model);
-		for (auto child : children)
+		const glm::mat4 nm = renderSelf(model);
+		for (const auto child : children)
 		{
 			child->render(nm);
 		}
 	}
 }
 
-bool Object::canBeParentOf(Object* object) const
+bool Object::canBeParentOf(const Object* object) const
 {
 	if (object == this)
 	{
@@ -134,12 +134,12 @@ bool Object::canBeParentOf(Object* object) const
 	return true;
 }
 
-glm::mat4 Object::modelTransform(glm::mat4 model) const
+glm::mat4 Object::modelTransform(const glm::mat4& model) const
 {
-	glm::mat4 nm = glm::rotate(model, glm::radians(rotation.x), { 1.0f, 0.0f, 0.0f });
+	glm::mat4 nm = glm::translate(model, position);
+	nm = glm::rotate(nm, glm::radians(rotation.x), { 1.0f, 0.0f, 0.0f });
 	nm = glm::rotate(nm, glm::radians(rotation.y), { 0.0f, 1.0f, 0.0f });
 	nm = glm::rotate(nm, glm::radians(rotation.z), { 0.0f, 0.0f, 1.0f });
-	nm = glm::translate(nm, position);
 	return nm;
 }
 

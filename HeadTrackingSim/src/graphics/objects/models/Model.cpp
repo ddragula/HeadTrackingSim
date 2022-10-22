@@ -26,7 +26,7 @@ void Model::setShader(Shader* shader)
 	this->shader = shader;
 }
 
-glm::mat4 Model::renderSelf(glm::mat4 model) const
+glm::mat4 Model::renderSelf(const glm::mat4& model) const
 {
 	glm::mat4 nm = modelTransform(model);
 

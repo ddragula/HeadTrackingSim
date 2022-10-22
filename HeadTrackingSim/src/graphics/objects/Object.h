@@ -39,12 +39,12 @@ public:
 	unsigned int getChildrenAmount() const;
 
 	void render() const;
-	void render(glm::mat4 model) const;
+	void render(const glm::mat4& model) const;
 
-	glm::mat4 modelTransform(glm::mat4 model) const;
+	glm::mat4 modelTransform(const glm::mat4& model) const;
 protected:
-	virtual glm::mat4 renderSelf(glm::mat4 model) const;
-	bool canBeParentOf(Object* object) const;
+	virtual glm::mat4 renderSelf(const glm::mat4& model) const;
+	bool canBeParentOf(const Object* object) const;
 	const std::string name;
 	glm::vec3 position;
 	glm::vec3 rotation;

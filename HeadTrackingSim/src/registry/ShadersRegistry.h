@@ -5,14 +5,14 @@
 
 #include "../graphics/Shader.h"
 
-enum Shaders {
-	Basic,
-	Fade,
-	Mandelbrot
-};
-
 class ShadersRegistry
 {
+public:
+	enum Shaders {
+		Basic,
+		Fade,
+		Mandelbrot
+	};
 private:
 	ShadersRegistry() = delete;
 public:

@@ -2,7 +2,6 @@
 
 #include "../../App.h"
 #include "../../registry/ShadersRegistry.h"
-#include "../../utils/Debug.h"
 
 const glm::vec3 Camera::FRONT = glm::vec3(0.0f, 0.0f, -1.0f);
 const glm::vec3 Camera::UP = glm::vec3(0.0f, 1.0f, 0.0f);
@@ -32,7 +31,7 @@ void Camera::setOrthoBox(float left, float right, float bottom, float top)
 	orthoBoxSize = { left, right, bottom, top };
 }
 
-glm::mat4 Camera::renderSelf(glm::mat4 model) const
+glm::mat4 Camera::renderSelf(const glm::mat4& model) const
 {
 	const glm::mat4& nm = modelTransform(model);
 
@@ -40,7 +39,9 @@ glm::mat4 Camera::renderSelf(glm::mat4 model) const
 	glm::mat4 projection;
 
 	if (mode == Mode::Perspective) {
-		projection = glm::perspective(glm::radians(fov), (float)App::getInstance()->getWidth() / (float)App::getInstance()->getHeight(), minv, maxv);
+		projection = glm::perspective(glm::radians(fov), 
+			(float)App::getInstance()->getWidth() / (float)App::getInstance()->getHeight(), 
+			minv, maxv);
 	}
 	else
 	{

@@ -2,21 +2,21 @@
 
 #include "../utils/Debug.h";
 
-std::unordered_map<Shaders, Shader*> ShadersRegistry::registry;
+std::unordered_map<ShadersRegistry::Shaders, Shader*> ShadersRegistry::registry;
 
 void ShadersRegistry::loadAll()
 {
 	Debug::log("Loading all shaders...");
 
-	registry[Shaders::Basic] = new Shader("shaders/basic.vert", "shaders/basic.frag");
-	registry[Shaders::Fade] = new Shader("shaders/fade.vert", "shaders/fade.frag");
-	registry[Shaders::Mandelbrot] = new Shader("shaders/fade.vert", "shaders/mandelbrot.frag");
+	registry[Basic] = new Shader("shaders/basic.vert", "shaders/basic.frag");
+	registry[Fade] = new Shader("shaders/fade.vert", "shaders/fade.frag");
+	registry[Mandelbrot] = new Shader("shaders/fade.vert", "shaders/mandelbrot.frag");
 }
 
 void ShadersRegistry::setVPMatrix(const glm::mat4& vp)
 {
-	registry[Shaders::Fade]->setUniformMx4f("vp", vp);
-	registry[Shaders::Mandelbrot]->setUniformMx4f("vp", vp);
+	registry[Fade]->setUniformMx4f("vp", vp);
+	registry[Mandelbrot]->setUniformMx4f("vp", vp);
 }
 
 void ShadersRegistry::unloadAll()

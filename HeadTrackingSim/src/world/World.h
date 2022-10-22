@@ -13,7 +13,6 @@ public:
 	void render() const;
 	void truncate();
 private:
-	Object* parent;
 	Plane* mandelbrotPlane;
 	Camera* camera;
 };
