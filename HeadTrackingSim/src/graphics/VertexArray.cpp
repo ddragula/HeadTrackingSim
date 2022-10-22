@@ -24,7 +24,7 @@ VertexArray::VertexArray(float vertices[], size_t verticesSize, unsigned int ind
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 	glBufferData(GL_ARRAY_BUFFER, verticesSize, vertices, GL_STATIC_DRAW);
 	glVertexAttribPointer(VERTEX_ATTRIB, 3, GL_FLOAT, GL_FALSE, 0, 0);
-	glEnableVertexAttribArray(0);
+	glEnableVertexAttribArray(VERTEX_ATTRIB);
 
 	if (uv != nullptr)
 	{
@@ -32,6 +32,7 @@ VertexArray::VertexArray(float vertices[], size_t verticesSize, unsigned int ind
 		glBindBuffer(GL_ARRAY_BUFFER, tbo);
 		glBufferData(GL_ARRAY_BUFFER, uvSize, uv, GL_STATIC_DRAW);
 		glVertexAttribPointer(TCOORD_ATTRIB, 2, GL_FLOAT, GL_FALSE, 0, 0);
+		glEnableVertexAttribArray(TCOORD_ATTRIB);
 	}
 
 	if (indices != nullptr)

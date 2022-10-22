@@ -2,8 +2,6 @@
 
 in vec2 fragCoord;
 
-uniform vec2 wndRes;
-
 out vec4 FragColor;
 
 vec3 hsv2rgb(vec3 c)
@@ -43,7 +41,7 @@ void main()
 
     vec2 uv = fragCoord;
     
-    float zx = (zmin.x + uv.x * (zmax.x - zmin.x)) * (wndRes.x / wndRes.y);
+    float zx = zmin.x + uv.x * (zmax.x - zmin.x);
     float zy = zmin.y + uv.y * (zmax.y - zmin.y);
     
     float c = convCheck(vec2(zx, zy));

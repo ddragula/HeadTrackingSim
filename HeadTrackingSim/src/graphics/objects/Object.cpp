@@ -1,5 +1,5 @@
 #include "Object.h"
-#include "../utils/Debug.h";
+#include "../../utils/Debug.h";
 #include <algorithm>
 
 Object::Object() : Object("unnamed-object") {}
@@ -7,7 +7,7 @@ Object::Object() : Object("unnamed-object") {}
 Object::Object(const std::string& name) : Object(name, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f)) {}
 
 Object::Object(const std::string& name, const glm::vec3& position, const glm::vec3& rotation)
-	: name(name), position(position), rotation(rotation), parent(nullptr), children() {}
+	: name(name), position(position), rotation(rotation), parent(nullptr), children(), enabled(true) {}
 
 const std::string& Object::getName() const
 {
@@ -32,6 +32,16 @@ const glm::vec3& Object::getPosition()
 const glm::vec3& Object::getRotation()
 {
 	return rotation;
+}
+
+void Object::setEnabled(bool enabled)
+{
+	this->enabled = enabled;
+}
+
+bool Object::isEnabled() const
+{
+	return enabled;
 }
 
 void Object::translate(const glm::vec3& vertex)
@@ -84,8 +94,26 @@ unsigned int Object::getChildrenAmount() const
 	return this->children.size();
 }
 
+glm::mat4 Object::renderSelf(glm::mat4 model) const
+{
+	return modelTransform(model);
+}
+
 void Object::render() const
 {
+	render(glm::mat4(1.0f));
+}
+
+void Object::render(glm::mat4 model) const
+{
+	if (isEnabled())
+	{
+		glm::mat4 nm = renderSelf(model);
+		for (auto child : children)
+		{
+			child->render(nm);
+		}
+	}
 }
 
 bool Object::canBeParentOf(Object* object) const
@@ -105,3 +133,13 @@ bool Object::canBeParentOf(Object* object) const
 
 	return true;
 }
+
+glm::mat4 Object::modelTransform(glm::mat4 model) const
+{
+	glm::mat4 nm = glm::rotate(model, glm::radians(rotation.x), { 1.0f, 0.0f, 0.0f });
+	nm = glm::rotate(nm, glm::radians(rotation.y), { 0.0f, 1.0f, 0.0f });
+	nm = glm::rotate(nm, glm::radians(rotation.z), { 0.0f, 0.0f, 1.0f });
+	nm = glm::translate(nm, position);
+	return nm;
+}
+

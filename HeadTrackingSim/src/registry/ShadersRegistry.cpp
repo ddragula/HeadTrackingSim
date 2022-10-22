@@ -13,6 +13,12 @@ void ShadersRegistry::loadAll()
 	registry[Shaders::Mandelbrot] = new Shader("shaders/fade.vert", "shaders/mandelbrot.frag");
 }
 
+void ShadersRegistry::setVPMatrix(const glm::mat4& vp)
+{
+	registry[Shaders::Fade]->setUniformMx4f("vp", vp);
+	registry[Shaders::Mandelbrot]->setUniformMx4f("vp", vp);
+}
+
 void ShadersRegistry::unloadAll()
 {
 	Debug::log("Unloading shaders...");

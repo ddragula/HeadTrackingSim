@@ -1,11 +1,15 @@
 #version 460 core
 
-layout (location = 0) in vec3 aPos;
+layout (location = 0) in vec3 pos;
+layout (location = 1) in vec2 tcs;
+
+uniform mat4 vp;
+uniform mat4 model;
 
 out vec2 fragCoord;
 
 void main()
 {
-	fragCoord = vec2((aPos.x + 1.0f) / 2.0f, (aPos.y + 1.0f) / 2.0f);
-	gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);
+	fragCoord = tcs;
+	gl_Position = vp * model * vec4(pos, 1.0);
 }

@@ -1,16 +1,17 @@
 #include "Model.h"
 
-#include "../../App.h"
+#include "../../../App.h"
+#include "../../../utils/Debug.h"
 
-Model::Model() : Object(), shader(nullptr), vertexArray(nullptr) {}
+Model::Model() : Model("Unnamed Model", nullptr, nullptr) {}
 
-Model::Model(const std::string& name) : Object(name), shader(nullptr), vertexArray(nullptr) {}
+Model::Model(const std::string& name) : Model(name, nullptr, nullptr) {}
 
 Model::Model(const std::string& name, const glm::vec3& position, const glm::vec3& rotation)
-	: Object(name, position, rotation), shader(nullptr), vertexArray(nullptr) {}
+	: Model(name, position, rotation, nullptr, nullptr) {}
 
 Model::Model(const std::string& name, VertexArray* vertexArray, Shader* shader)
-	: Object(name), shader(shader), vertexArray(vertexArray) {}
+	: Model(name, { 0.0f, 0.0f, 0.0f }, { 0.0f, 0.0f, 0.0f }, vertexArray, shader) {}
 
 Model::Model(const std::string& name, const glm::vec3& position, const glm::vec3& rotation, VertexArray* vertexArray, Shader* shader)
 	: Object(name, position, rotation), shader(shader), vertexArray(vertexArray) {}
@@ -25,11 +26,15 @@ void Model::setShader(Shader* shader)
 	this->shader = shader;
 }
 
-void Model::render() const
+glm::mat4 Model::renderSelf(glm::mat4 model) const
 {
+	glm::mat4 nm = modelTransform(model);
+
 	shader->enable();
-	shader->setUniform2f("wndRes", App::getInstance()->getWidth(), App::getInstance()->getHeight());
+	shader->setUniformMx4f("model", nm);
 	vertexArray->render();
+
+	return nm;
 }
 
 

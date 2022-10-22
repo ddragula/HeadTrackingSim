@@ -1,6 +1,7 @@
 #pragma once
 
-#include "../graphics/models/models.h";
+#include "../graphics/objects/Camera.h"
+#include "../graphics/objects/models/models.h";
 
 class World
 {
@@ -9,8 +10,10 @@ public:
 
 	void start();
 	void update();
-	void render();
+	void render() const;
 	void truncate();
 private:
+	Object* parent;
 	Plane* mandelbrotPlane;
+	Camera* camera;
 };

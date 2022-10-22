@@ -21,6 +21,7 @@ public:
 	static void enable(Shaders shader);
 	static void disable(Shaders shader);
 	static Shader* get(Shaders shader);
+	static void setVPMatrix(const glm::mat4& vp);
 private:
 	static std::unordered_map<Shaders, Shader*> registry;
 };

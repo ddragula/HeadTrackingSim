@@ -1,17 +1,19 @@
 #pragma once
 #include <string>
 #include <vector>
-#include "glm/glm.hpp";
-
-enum ObjectType
-{
-	Empty,
-	Camera,
-	Model
-};
+#include <glm/glm.hpp>;
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 class Object
 {
+public:
+	enum ObjectType
+	{
+		Empty,
+		Camera,
+		Model
+	};
 public:
 	Object();
 	Object(const std::string& name);
@@ -25,6 +27,9 @@ public:
 	const glm::vec3& getPosition();
 	const glm::vec3& getRotation();
 
+	void setEnabled(bool enabled);
+	bool isEnabled() const;
+
 	void translate(const glm::vec3& vertex);
 	void rotate(const glm::vec3& vertex);
 
@@ -33,13 +38,18 @@ public:
 	const std::vector<Object*>& getChildren() const;
 	unsigned int getChildrenAmount() const;
 
-	virtual void render() const;
+	void render() const;
+	void render(glm::mat4 model) const;
+
+	glm::mat4 modelTransform(glm::mat4 model) const;
 protected:
+	virtual glm::mat4 renderSelf(glm::mat4 model) const;
 	bool canBeParentOf(Object* object) const;
-private:
 	const std::string name;
 	glm::vec3 position;
 	glm::vec3 rotation;
+private:
 	Object* parent;
 	std::vector<Object*> children;
+	bool enabled;
 };
