@@ -15,4 +15,5 @@ public:
 private:
 	Plane* mandelbrotPlane;
 	Camera* camera;
+	Object* parent;
 };

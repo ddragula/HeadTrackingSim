@@ -4,6 +4,6 @@ int main()
 {
     const auto app = App::create();
     app->loop();
-    app->terminate();
+    App::terminate();
     return 0;
 }

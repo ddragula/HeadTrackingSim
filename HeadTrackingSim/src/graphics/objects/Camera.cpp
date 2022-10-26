@@ -35,7 +35,15 @@ glm::mat4 Camera::renderSelf(const glm::mat4& model) const
 {
 	const glm::mat4& nm = modelTransform(model);
 
-	const glm::mat4& view = glm::lookAt(position, position + FRONT, UP);
+	const glm::vec4 act_pos_v4 = model * glm::vec4(position, 0.0f);
+	const glm::vec4 act_front_v4 = glm::normalize(nm * glm::vec4(FRONT, 0.0f));
+	const glm::vec4 act_up_v4 = glm::normalize(nm * glm::vec4(UP, 0.0f));
+
+	const auto act_pos = glm::vec3(act_pos_v4);
+	const auto act_front = glm::vec3(act_front_v4);
+	const auto act_up = glm::vec3(act_up_v4);
+
+	const glm::mat4& view = glm::lookAt(act_pos, act_pos + act_front, act_up);
 	glm::mat4 projection;
 
 	if (mode == Mode::Perspective) {

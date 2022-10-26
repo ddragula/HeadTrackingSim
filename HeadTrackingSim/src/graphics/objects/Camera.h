@@ -21,7 +21,7 @@ public:
 	void setZExtremes(float min, float max);
 	void setOrthoBox(float left, float right, float bottom, float top);
 protected:
-	virtual glm::mat4 renderSelf(const glm::mat4& model) const override;
+	glm::mat4 renderSelf(const glm::mat4& model) const override;
 private:
 	float fov;
 	float minv, maxv;
