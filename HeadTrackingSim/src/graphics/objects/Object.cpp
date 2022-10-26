@@ -7,7 +7,7 @@ Object::Object() : Object("unnamed-object") {}
 Object::Object(const std::string& name) : Object(name, glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 0.0f, 0.0f)) {}
 
 Object::Object(const std::string& name, const glm::vec3& position, const glm::vec3& rotation)
-	: name(name), position(position), rotation(rotation), parent(nullptr), children(), enabled(true) {}
+	: name(name), position(position), rotation(rotation), parent(nullptr), children(), enabled(true), scale_(1.0f, 1.0f, 1.0f) {}
 
 const std::string& Object::getName() const
 {
@@ -24,14 +24,24 @@ void Object::setRotation(const glm::vec3& rotation)
 	this->rotation = rotation;
 }
 
-const glm::vec3& Object::getPosition()
+void Object::setScale(const glm::vec3& scale)
+{
+	this->scale_ = scale;
+}
+
+const glm::vec3& Object::getPosition() const
 {
 	return position;
 }
 
-const glm::vec3& Object::getRotation()
+const glm::vec3& Object::getRotation() const
 {
 	return rotation;
+}
+
+const glm::vec3& Object::getScale() const
+{
+	return scale_;
 }
 
 void Object::setEnabled(bool enabled)
@@ -52,6 +62,16 @@ void Object::translate(const glm::vec3& vertex)
 void Object::rotate(const glm::vec3& vertex)
 {
 	rotation += vertex;
+}
+
+void Object::addScale(const glm::vec3& vertex)
+{
+	this->scale_ += vertex;
+}
+
+void Object::multiplyScale(const glm::vec3& vertex)
+{
+	this->scale_ *= vertex;
 }
 
 void Object::addChild(Object* child)

@@ -31,7 +31,7 @@ glm::mat4 Model::renderSelf(const glm::mat4& model) const
 	glm::mat4 nm = modelTransform(model);
 
 	shader->enable();
-	shader->setUniformMx4f("model", nm);
+	shader->setUniformMx4f("model", glm::scale(nm, scale_));
 	vertexArray->render();
 
 	return nm;

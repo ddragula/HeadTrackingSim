@@ -24,14 +24,19 @@ public:
 
 	void setPosition(const glm::vec3& position);
 	void setRotation(const glm::vec3& rotation);
-	const glm::vec3& getPosition();
-	const glm::vec3& getRotation();
+	void setScale(const glm::vec3& scale);
+	const glm::vec3& getPosition() const;
+	const glm::vec3& getRotation() const;
+	const glm::vec3& getScale() const;
 
 	void setEnabled(bool enabled);
 	bool isEnabled() const;
 
 	void translate(const glm::vec3& vertex);
 	void rotate(const glm::vec3& vertex);
+
+	void addScale(const glm::vec3& vertex);
+	void multiplyScale(const glm::vec3& vertex);
 
 	void addChild(Object* child);
 	Object* getParent() const;
@@ -48,6 +53,7 @@ protected:
 	const std::string name;
 	glm::vec3 position;
 	glm::vec3 rotation;
+	glm::vec3 scale_;
 private:
 	Object* parent;
 	std::vector<Object*> children;
