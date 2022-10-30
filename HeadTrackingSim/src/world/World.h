@@ -9,7 +9,7 @@ public:
 	World();
 
 	void start();
-	void update(double deltaTime);
+	void update();
 	void render() const;
 	void truncate();
 private:

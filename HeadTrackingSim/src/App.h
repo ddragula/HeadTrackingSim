@@ -18,7 +18,7 @@ public:
 	int getHeight() const;
 private:
 	GLFWwindow* window;
-	void update(double deltaTime);
+	void update();
 	void render();
 	bool running;
 	int width;

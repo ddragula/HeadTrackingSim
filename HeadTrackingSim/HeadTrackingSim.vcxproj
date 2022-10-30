@@ -97,6 +97,7 @@
     <ClCompile Include="src\registry\ShadersRegistry.cpp" />
     <ClCompile Include="src\utils\Debug.cpp" />
     <ClCompile Include="src\utils\FileUtils.cpp" />
+    <ClCompile Include="src\Time.cpp" />
     <ClCompile Include="src\vendor\glad\glad.c" />
     <ClCompile Include="src\vendor\imgui\imgui.cpp" />
     <ClCompile Include="src\vendor\imgui\imgui_demo.cpp" />
@@ -129,6 +130,7 @@
     <ClInclude Include="src\graphics\objects\models\Model.h" />
     <ClInclude Include="src\graphics\objects\models\Plane.h" />
     <ClInclude Include="src\graphics\objects\Object.h" />
+    <ClInclude Include="src\Time.h" />
     <ClInclude Include="src\world\World.h" />
   </ItemGroup>
   <ItemGroup>

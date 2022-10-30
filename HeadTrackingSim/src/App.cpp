@@ -3,14 +3,7 @@
 
 #include "utils/Debug.h"
 #include "registry/ShadersRegistry.h"
-
-#ifdef _WIN32
-#include <windows.h>
-#define delay(ms) Sleep(ms)
-#else
-#include <unistd.h>
-#define delay(ms) usleep(ms * 1000)
-#endif
+#include "Time.h"
 
 App* App::instance = nullptr;
 
@@ -27,6 +20,7 @@ App::App() : running(true), width(800), height(600), frameCap(1.0 / 60.0)
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	glfwWindowHint(GLFW_SAMPLES, 4);
 	
 #ifdef __APPLE__
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
@@ -55,6 +49,8 @@ App::App() : running(true), width(800), height(600), frameCap(1.0 / 60.0)
 		return;
 	}
 
+	glEnable(GL_MULTISAMPLE);
+
 	ShadersRegistry::loadAll();
 	gui.initialize(window);
 	world.start();
@@ -62,15 +58,13 @@ App::App() : running(true), width(800), height(600), frameCap(1.0 / 60.0)
 
 void App::loop()
 {
-	double lastFrame = glfwGetTime();
+	Time::start(glfwGetTime());
 
 	while (running)
 	{
-		const double now = glfwGetTime();
-		const double frameTime = now - lastFrame;
-		lastFrame = now;
+		Time::frame(glfwGetTime());
 
-		update(frameTime);
+		update();
 		render();
 
 		if (glfwWindowShouldClose(window))
@@ -79,19 +73,16 @@ void App::loop()
 			break;
 		}
 
-		if (frameTime < frameCap)
-		{
-			delay(static_cast<unsigned long>((frameCap - frameTime) * 1000.0));
-		}
+		Time::frameCap(frameCap);
 	}
 }
 
-void App::update(const double deltaTime)
+void App::update()
 {
 	glfwPollEvents();
 
 	gui.update();
-	world.update(deltaTime);
+	world.update();
 }
 
 void App::render()

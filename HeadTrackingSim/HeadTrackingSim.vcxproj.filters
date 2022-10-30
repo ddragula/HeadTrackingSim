@@ -147,6 +147,9 @@
     <ClCompile Include="src\graphics\objects\models\Cube.cpp">
       <Filter>Pliki źródłowe\graphics\objects\models</Filter>
     </ClCompile>
+    <ClCompile Include="src\Time.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\App.h">
@@ -202,6 +205,9 @@
     </ClInclude>
     <ClInclude Include="src\world\World.h">
       <Filter>Pliki nagłówkowe\world</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Time.h">
+      <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
