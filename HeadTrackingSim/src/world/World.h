@@ -14,6 +14,7 @@ public:
 	void truncate();
 private:
 	Plane* mandelbrotPlane;
+	Plane* farPlane;
 	Camera* camera;
 	Object* parent;
 };

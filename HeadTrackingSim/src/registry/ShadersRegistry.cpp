@@ -15,7 +15,6 @@ void ShadersRegistry::loadAll()
 
 void ShadersRegistry::setVPMatrix(const glm::mat4& vp)
 {
-	registry[Fade]->setUniformMx4f("vp", vp);
 	registry[Mandelbrot]->setUniformMx4f("vp", vp);
 }
 

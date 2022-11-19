@@ -50,6 +50,7 @@ App::App() : running(true), width(800), height(600), frameCap(1.0 / 60.0)
 	}
 
 	glEnable(GL_MULTISAMPLE);
+	glEnable(GL_DEPTH_TEST);
 
 	ShadersRegistry::loadAll();
 	gui.initialize(window);
@@ -87,7 +88,7 @@ void App::update()
 
 void App::render()
 {
-	glClear(GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	world.render();
 	gui.render();

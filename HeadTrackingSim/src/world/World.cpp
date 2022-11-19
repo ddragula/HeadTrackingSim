@@ -15,6 +15,10 @@ void World::start()
 	parent = new Object("Parent");
 	parent->addChild(camera);
 
+	farPlane = new Plane("Far Plane", { 1.0f, 1.0f });
+	farPlane->setShader(ShadersRegistry::get(ShadersRegistry::Mandelbrot));
+	farPlane->rotate({ 0.0f, 45.0f, 0.0f });
+
 	mandelbrotPlane = new Plane("Mandelbrot Plane", { 1.0f, 1.0f });
 	mandelbrotPlane->setShader(ShadersRegistry::get(ShadersRegistry::Mandelbrot));
 }
@@ -27,6 +31,7 @@ void World::update()
 void World::render() const
 {
 	parent->render();
+	farPlane->render();
 	mandelbrotPlane->render();
 }
 
