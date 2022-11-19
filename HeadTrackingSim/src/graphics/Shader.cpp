@@ -5,7 +5,7 @@
 #include <glad/glad.h>
 #include <glm/gtc/type_ptr.hpp>
 
-Shader::Shader(const std::string& vertexPath, const std::string& fragmentPath) : enabled(false), id(0)
+Shader::Shader(const std::string& vertexPath, const std::string& fragmentPath) : enabled(false), id(0), vpMat(1.0f)
 {
 	Debug::log("Loading the shader: (vertex: \"" + vertexPath + "\", fragment: \"" + fragmentPath + "\")");
 	load(vertexPath, fragmentPath);
@@ -71,39 +71,35 @@ void Shader::create(const std::string& vertexSource, const std::string& fragment
 	id = program;
 }
 
-void Shader::setUniform1i(const std::string& name, const int value)
+void Shader::setUniform1i(const std::string& name, const int value) const
 {
-	if (!enabled) enable();
 	glUniform1i(glGetUniformLocation(id, name.c_str()), value);
 }
 
-void Shader::setUniform1f(const std::string& name, const float value)
+void Shader::setUniform1f(const std::string& name, const float value) const
 {
-	if (!enabled) enable();
 	glUniform1f(glGetUniformLocation(id, name.c_str()), value);
 }
 
-void Shader::setUniform2f(const std::string& name, const float x, const float y)
+void Shader::setUniform2f(const std::string& name, const float x, const float y) const
 {
-	if (!enabled) enable();
 	glUniform2f(glGetUniformLocation(id, name.c_str()), x, y);
 }
 
-void Shader::setUniform3f(const std::string& name, const glm::vec3& vec)
+void Shader::setUniform3f(const std::string& name, const glm::vec3& vec) const
 {
-	if (!enabled) enable();
 	glUniform3f(glGetUniformLocation(id, name.c_str()), vec.x, vec.y, vec.z);
 }
 
-void Shader::setUniformMx4f(const std::string& name, const glm::mat4& mat)
+void Shader::setUniformMx4f(const std::string& name, const glm::mat4& mat) const
 {
-	if (!enabled) enable();
 	glUniformMatrix4fv(glGetUniformLocation(id, name.c_str()), 1, GL_FALSE, glm::value_ptr(mat));
 }
 
 void Shader::enable()
 {
 	glUseProgram(id);
+	setUniformMx4f("vp", vpMat);
 	enabled = true;
 }
 
@@ -111,4 +107,9 @@ void Shader::disable()
 {
 	glUseProgram(0);
 	enabled = false;
+}
+
+void Shader::setVPMat(const glm::mat4& vpm)
+{
+	this->vpMat = vpm;
 }

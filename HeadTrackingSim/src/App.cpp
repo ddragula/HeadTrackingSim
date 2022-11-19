@@ -66,7 +66,11 @@ void App::loop()
 		Time::frame(glfwGetTime());
 
 		update();
-		render();
+
+		if (width > 0 && height > 0)
+		{
+			render();
+		}
 
 		if (glfwWindowShouldClose(window))
 		{

@@ -36,8 +36,10 @@ void Time::frame(double now)
 
 void Time::frameCap(double spf)
 {
-	if (frameTime < spf)
+	// TODO: Working frameCap
+
+	/*if (frameTime < spf)
 	{
 		delay(static_cast<unsigned long>((spf - frameTime) * 1000.0));
-	}
+	}*/
 }

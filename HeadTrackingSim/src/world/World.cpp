@@ -12,27 +12,27 @@ void World::start()
 	camera->setMode(Camera::Perspective);
 	camera->setPosition({ 0.0f, 0.0f, 2.0f });
 
-	parent = new Object("Parent");
-	parent->addChild(camera);
-
 	farPlane = new Plane("Far Plane", { 1.0f, 1.0f });
-	farPlane->setShader(ShadersRegistry::get(ShadersRegistry::Mandelbrot));
-	farPlane->rotate({ 0.0f, 45.0f, 0.0f });
+	farPlane->setShader(ShadersRegistry::get(ShadersRegistry::Fade));
+	farPlane->rotate({ 0.0f, 90.0f, 0.0f });
 
 	mandelbrotPlane = new Plane("Mandelbrot Plane", { 1.0f, 1.0f });
 	mandelbrotPlane->setShader(ShadersRegistry::get(ShadersRegistry::Mandelbrot));
+
+	parent = new Object("Parent");
+	parent->addChild(farPlane);
+	parent->addChild(mandelbrotPlane);
 }
 
 void World::update()
 {
-	parent->rotate({ 0.0f, 30.0f * Time::deltaTime(), 0.0f });
+	parent->rotate({ 0.0f, 90.0f * Time::deltaTime(), 0.0f });
 }
 
 void World::render() const
 {
+	camera->render();
 	parent->render();
-	farPlane->render();
-	mandelbrotPlane->render();
 }
 
 void World::truncate()

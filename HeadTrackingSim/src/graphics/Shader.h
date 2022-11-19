@@ -15,11 +15,15 @@ private:
 	bool enabled;
 	int id;
 public:
-	void setUniform1i(const std::string& name, int value);
-	void setUniform1f(const std::string& name, float value);
-	void setUniform2f(const std::string& name, float x, float y);
-	void setUniform3f(const std::string& name, const glm::vec3& vec);
-	void setUniformMx4f(const std::string& name, const glm::mat4& mat);
+	void setUniform1i(const std::string& name, int value) const;
+	void setUniform1f(const std::string& name, float value) const;
+	void setUniform2f(const std::string& name, float x, float y) const;
+	void setUniform3f(const std::string& name, const glm::vec3& vec) const;
+	void setUniformMx4f(const std::string& name, const glm::mat4& mat) const;
 	void enable();
 	void disable();
+private:
+	glm::mat4 vpMat;
+public:
+	void setVPMat(const glm::mat4& vpm);
 };

@@ -47,6 +47,7 @@ glm::mat4 Camera::renderSelf(const glm::mat4& model) const
 	glm::mat4 projection;
 
 	if (mode == Mode::Perspective) {
+
 		projection = glm::perspective(glm::radians(fov), 
 			(float)App::getInstance()->getWidth() / (float)App::getInstance()->getHeight(), 
 			minv, maxv);
