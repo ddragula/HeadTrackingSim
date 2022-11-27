@@ -150,6 +150,9 @@
     <ClCompile Include="src\Time.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
+    <ClCompile Include="src\gui\CameraWindow.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\App.h">
@@ -207,6 +210,9 @@
       <Filter>Pliki nagłówkowe\world</Filter>
     </ClInclude>
     <ClInclude Include="src\Time.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gui\CameraWindow.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>

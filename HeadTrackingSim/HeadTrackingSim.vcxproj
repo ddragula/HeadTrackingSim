@@ -88,6 +88,7 @@
     <ClCompile Include="src\graphics\objects\Camera.cpp" />
     <ClCompile Include="src\graphics\VertexArray.cpp" />
     <ClCompile Include="src\graphics\Shader.cpp" />
+    <ClCompile Include="src\gui\CameraWindow.cpp" />
     <ClCompile Include="src\gui\Gui.cpp" />
     <ClCompile Include="src\gui\GuiWindow.cpp" />
     <ClCompile Include="src\gui\Menu.cpp" />
@@ -118,6 +119,7 @@
     <ClInclude Include="src\graphics\objects\models\models.h" />
     <ClInclude Include="src\graphics\VertexArray.h" />
     <ClInclude Include="src\graphics\Shader.h" />
+    <ClInclude Include="src\gui\CameraWindow.h" />
     <ClInclude Include="src\gui\Gui.h" />
     <ClInclude Include="src\gui\GuiWindow.h" />
     <ClInclude Include="src\gui\Menu.h" />

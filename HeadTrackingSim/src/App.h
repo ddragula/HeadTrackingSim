@@ -16,6 +16,7 @@ public:
 	void loop();
 	int getWidth() const;
 	int getHeight() const;
+	const World* getWorld() const;
 private:
 	GLFWwindow* window;
 	void update();

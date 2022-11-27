@@ -5,6 +5,7 @@
 
 #include "Menu.h"
 #include "TestGuiWindow.h"
+#include "CameraWindow.h"
 
 class Gui
 {
@@ -16,6 +17,7 @@ private:
 	ImGuiIO* io;
 	Menu menu;
 	TestGuiWindow testWindow;
+	CameraWindow cameraWindow;
 public:
 	void update();
 	void render();

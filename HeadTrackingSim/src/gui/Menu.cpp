@@ -7,9 +7,10 @@ Menu::Menu() : showTestWindow(nullptr)
 {
 }
 
-void Menu::initialize(bool* showTestWindow)
+void Menu::initialize(bool* showTestWindow, bool* showCameraWindow)
 {
     this->showTestWindow = showTestWindow;
+    this->showCameraWindow = showCameraWindow;
 }
 
 void Menu::update()
@@ -19,6 +20,7 @@ void Menu::update()
         if (ImGui::BeginMenu("File"))
         {
             if (ImGui::MenuItem("Test Window", nullptr, showTestWindow)) {}
+            if (ImGui::MenuItem("Camera", nullptr, showCameraWindow)) {}
             ImGui::EndMenu();
         }
         ImGui::EndMainMenuBar();

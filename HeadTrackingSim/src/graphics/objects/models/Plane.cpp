@@ -25,11 +25,14 @@ const glm::vec2& Plane::getSize() const
 
 void Plane::create()
 {
+	float ax = size.x / 2.0f;
+	float ay = size.y / 2.0f;
+
 	float vertices[] = {
-		-size.x / 2.0f, -size.y / 2.0f, 0.0f,
-		-size.x / 2.0f,  size.y / 2.0f, 0.0f,
-		 size.x / 2.0f,  size.y / 2.0f, 0.0f,
-		 size.x / 2.0f, -size.y / 2.0f, 0.0f,
+		-ax, -ay, 0.0f,
+		-ax,  ay, 0.0f,
+		 ax,  ay, 0.0f,
+		 ax, -ay, 0.0f,
 	};
 
 	unsigned int indices[] = {

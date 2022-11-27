@@ -144,6 +144,11 @@ int App::getHeight() const
 	return height;
 }
 
+const World* App::getWorld() const
+{
+	return &world;
+}
+
 void App::frameBufferResize(GLFWwindow* window, const int width, const int height)
 {
 	const auto appInstance = getInstance();

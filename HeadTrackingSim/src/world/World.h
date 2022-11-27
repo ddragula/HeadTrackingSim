@@ -3,6 +3,8 @@
 #include "../graphics/objects/Camera.h"
 #include "../graphics/objects/models/models.h";
 
+#include <vector>
+
 class World
 {
 public:
@@ -12,9 +14,12 @@ public:
 	void update();
 	void render() const;
 	void truncate();
+
+	Camera* getCamera() const;
 private:
 	Plane* mandelbrotPlane;
-	Plane* farPlane;
+	Plane* fadePlane;
 	Camera* camera;
 	Object* parent;
+	std::vector<Cube*> cubes;
 };

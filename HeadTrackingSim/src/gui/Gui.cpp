@@ -19,7 +19,8 @@ void Gui::initialize(GLFWwindow * window)
 	ImGui_ImplOpenGL3_Init("#version 460");
 
 	testWindow.initialize(false);
-    menu.initialize(&testWindow.show);
+	cameraWindow.initialize(false);
+    menu.initialize(&testWindow.show, &cameraWindow.show);
 }
 
 void Gui::update()
@@ -29,6 +30,7 @@ void Gui::update()
 	ImGui::NewFrame();
 
 	testWindow.update();
+	cameraWindow.update();
 	menu.update();
 
     ImGui::Render();
