@@ -4,7 +4,7 @@
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
 # Own
-HeadTrackSim/imgui.ini
+imgui.ini
 
 # User-specific files
 *.rsuser

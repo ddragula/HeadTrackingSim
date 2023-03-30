@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Object.h";
+#include "Object.h"
 
 class Camera : public Object
 {

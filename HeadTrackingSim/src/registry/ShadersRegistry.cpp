@@ -1,22 +1,35 @@
 #include "ShadersRegistry.h"
 
-#include "../utils/Debug.h";
+#include <fstream>
+#include <nlohmann/json.hpp>
 
-std::unordered_map<ShadersRegistry::Shaders, Shader*> ShadersRegistry::registry;
+#include "../utils/Debug.h"
+#include "../utils/FileUtils.h"
+
+using json = nlohmann::json;
+
+std::unordered_map<std::string, Shader*> ShadersRegistry::registry;
 
 void ShadersRegistry::loadAll()
 {
 	Debug::log("Loading all shaders...");
 
-	registry[Basic] = new Shader("shaders/basic.vert", "shaders/basic.frag");
-	registry[Fade] = new Shader("shaders/fade.vert", "shaders/fade.frag");
-	registry[Mandelbrot] = new Shader("shaders/fade.vert", "shaders/mandelbrot.frag");
+	json shadersConfig = json::parse(std::ifstream("resources/shaders.json"));
+
+	for (json::iterator it = shadersConfig.begin(); it != shadersConfig.end(); ++it) {
+		registry[it.key()] = new Shader(
+			"resources/" + static_cast<std::string>(it.value()["vertex"]),
+			"resources/" + static_cast<std::string>(it.value()["fragment"])
+		);
+	}
 }
 
 void ShadersRegistry::setVPMatrix(const glm::mat4& vp)
 {
-	registry[Mandelbrot]->setVPMat(vp);
-	registry[Fade]->setVPMat(vp);
+	for (auto& pair : registry)
+	{
+		pair.second->setVPMat(vp);
+	}
 }
 
 void ShadersRegistry::unloadAll()
@@ -31,17 +44,17 @@ void ShadersRegistry::unloadAll()
 }
 
 
-void ShadersRegistry::enable(Shaders shader)
+void ShadersRegistry::enable(const std::string& name)
 {
-	registry[shader]->enable();
+	registry[name]->enable();
 }
 
-void ShadersRegistry::disable(Shaders shader)
+void ShadersRegistry::disable(const std::string& name)
 {
-	registry[shader]->disable();
+	registry[name]->disable();
 }
 
-Shader* ShadersRegistry::get(Shaders shader)
+Shader* ShadersRegistry::get(const std::string& name)
 {
-	return registry[shader];
+	return registry[name];
 }

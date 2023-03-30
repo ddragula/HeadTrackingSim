@@ -1,0 +1,14 @@
+{
+  "basic": {
+    "fragment": "shaders/basic.frag",
+    "vertex": "shaders/basic.vert"
+  },
+  "fade": {
+    "fragment": "shaders/fade.frag",
+    "vertex": "shaders/fade.vert"
+  },
+  "mandelbrot": {
+    "fragment": "shaders/mandelbrot.frag",
+    "vertex": "shaders/fade.vert"
+  }
+}

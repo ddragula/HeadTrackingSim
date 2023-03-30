@@ -215,22 +215,11 @@
     <ClInclude Include="src\gui\CameraWindow.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
+    <ClInclude Include="src\vendor\nlohmann\json.hpp">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="shaders\basic.frag">
-      <Filter>Pliki zasobów\shaders</Filter>
-    </None>
-    <None Include="shaders\basic.vert">
-      <Filter>Pliki zasobów\shaders</Filter>
-    </None>
-    <None Include="shaders\mandelbrot.frag">
-      <Filter>Pliki zasobów\shaders</Filter>
-    </None>
-    <None Include="shaders\fade.vert">
-      <Filter>Pliki zasobów\shaders</Filter>
-    </None>
-    <None Include="shaders\fade.frag">
-      <Filter>Pliki zasobów\shaders</Filter>
-    </None>
+    <None Include="resources\shaders.json" />
   </ItemGroup>
 </Project>

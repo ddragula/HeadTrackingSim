@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Object.h";
+#include "../Object.h"
 #include "../../Shader.h"
 #include "../../VertexArray.h"
 

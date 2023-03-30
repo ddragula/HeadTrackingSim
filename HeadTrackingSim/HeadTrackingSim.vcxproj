@@ -55,7 +55,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\GLAD\include;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLM\include;$(SolutionDir)Dependencies\Imgui\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependencies\JSON\include;$(SolutionDir)Dependencies\GLAD\include;$(SolutionDir)Dependencies\GLFW\include;$(SolutionDir)Dependencies\GLM\include;$(SolutionDir)Dependencies\Imgui\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -133,14 +133,11 @@
     <ClInclude Include="src\graphics\objects\models\Plane.h" />
     <ClInclude Include="src\graphics\objects\Object.h" />
     <ClInclude Include="src\Time.h" />
+    <ClInclude Include="src\vendor\nlohmann\json.hpp" />
     <ClInclude Include="src\world\World.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="shaders\fade.frag" />
-    <None Include="shaders\mandelbrot.frag" />
-    <None Include="shaders\fade.vert" />
-    <None Include="shaders\basic.frag" />
-    <None Include="shaders\basic.vert" />
+    <None Include="resources\shaders.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

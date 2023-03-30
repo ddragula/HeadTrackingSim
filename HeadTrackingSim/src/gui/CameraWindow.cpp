@@ -1,6 +1,6 @@
 #include "CameraWindow.h"
 
-#include "../App.h";
+#include "../App.h"
 
 CameraWindow::CameraWindow()
 {

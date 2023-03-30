@@ -1,6 +1,6 @@
 #include "Cube.h"
 
-#include "../../../utils/Debug.h";
+#include "../../../utils/Debug.h"
 
 Cube::Cube() : Cube("Unnamed Cube", { 1.0f, 1.0f, 1.0f }) {}
 
@@ -73,5 +73,5 @@ void Cube::create()
 		0.0f, 1.0f
 	};
 
-	setVertexArray(new VertexArray(vertices, sizeof(vertices), indices, sizeof(indices), uv, sizeof(uv)));
+	setVertexArray(new VertexArray(vertices, sizeof(vertices), indices, sizeof(indices), uv, sizeof(uv), VertexArray::Solid));
 }
