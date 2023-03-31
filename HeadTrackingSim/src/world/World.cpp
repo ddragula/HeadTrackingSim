@@ -12,25 +12,34 @@ void World::start()
 
 	camera = new Camera("Camera");
 	{
-		camera->setMode(Camera::Perspective);
 		camera->setPosition({ 0.0f, 0.0f, 2.0f });
 	}
 
 	mandelbrotPlane = new Plane("plane", { 1.0f, 1.0f }, { 0.0f, 0.0f, 0.0f }, { 0.0f, 0.0f, 0.0f });
-	mandelbrotPlane->setShader(ShadersRegistry::get("mandelbrot"));
+	mandelbrotPlane->setShader(ShadersRegistry::get("color"));
+	
+	crosshair = new Crosshair();
 }
 
 void World::update()
 {
 
-
 }
 
 void World::render() const
 {
-	camera->render();
-	camera->setMode(Camera::FixedOrtographic);
+	// ========= PERSPECTIVE =========
+	camera->setMode(Camera::Perspective);
+	ShadersRegistry::get("color")->setUniform3f("color", { 1.0f, 0.0f, 1.0f });
+
 	mandelbrotPlane->render();
+
+	
+	// ==== FIXED ORTOGRAPHIC UI =====
+	camera->setMode(Camera::UIMode);
+	ShadersRegistry::get("color")->setUniform3f("color", { 0.0f, 1.0f, 0.0f });
+
+	crosshair->render();
 }
 
 void World::truncate()

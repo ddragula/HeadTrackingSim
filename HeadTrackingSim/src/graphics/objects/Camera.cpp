@@ -14,6 +14,7 @@ Camera::Camera(const std::string& name) : Object(name), mode(Camera::Perspective
 void Camera::setMode(Mode mode)
 {
 	this->mode = mode;
+	render();
 }
 
 void Camera::setFov(float fov)
@@ -38,17 +39,21 @@ glm::mat4 Camera::renderSelf(const glm::mat4& model) const
 	if (mode == Mode::Perspective) {
 		projection = glm::perspective(glm::radians(fov), aspectRatio, minv, maxv);
 	}
-	else
+	else if (mode == Mode::Orthographic)
 	{
 		projection = glm::ortho(-aspectRatio, aspectRatio, -1.0f, 1.0f, 0.1f, 100.0f);
 	}
+	else {
+		const int width = App::getInstance()->getWidth();
+		const int height = App::getInstance()->getHeight();
 
-	if (mode == Mode::FixedOrtographic) {
+		projection = glm::ortho(0.0f, static_cast<float>(width), static_cast<float>(height), 0.0f, 0.1f, 100.0f);
+
 		const glm::mat4& view = glm::mat4(
 			1, 0, 0, 0,
 			0, 1, 0, 0,
 			0, 0, 1, 0,
-			0, 0, -2, 1
+			0, 0, -1, 1
 		);
 
 		ShadersRegistry::setVPMatrix(projection * view);

@@ -20,6 +20,7 @@ private:
 	Plane* mandelbrotPlane;
 	Plane* fadePlane;
 	Camera* camera;
+	Crosshair* crosshair;
 	Object* parent;
 	std::vector<Cube*> cubes;
 };

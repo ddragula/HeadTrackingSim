@@ -153,6 +153,9 @@
     <ClCompile Include="src\gui\CameraWindow.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
+    <ClCompile Include="src\graphics\objects\models\Crosshair.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\App.h">
@@ -218,7 +221,7 @@
     <ClInclude Include="src\vendor\nlohmann\json.hpp">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\objects\models\Line.h">
+    <ClInclude Include="src\graphics\objects\models\Crosshair.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>

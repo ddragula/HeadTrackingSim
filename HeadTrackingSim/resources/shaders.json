@@ -1,7 +1,7 @@
 {
-  "basic": {
-    "fragment": "shaders/basic.frag",
-    "vertex": "shaders/basic.vert"
+  "color": {
+    "fragment": "shaders/color.frag",
+    "vertex": "shaders/color.vert"
   },
   "fade": {
     "fragment": "shaders/fade.frag",

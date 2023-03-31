@@ -43,11 +43,12 @@ public:
 	const std::vector<Object*>& getChildren() const;
 	unsigned int getChildrenAmount() const;
 
-	void render() const;
-	void render(const glm::mat4& model) const;
+	void render();
+	void render(const glm::mat4& model);
 
 	glm::mat4 modelTransform(const glm::mat4& model) const;
 protected:
+	virtual void beforeRender();
 	virtual glm::mat4 renderSelf(const glm::mat4& model) const;
 	bool canBeParentOf(const Object* object) const;
 	const std::string name;

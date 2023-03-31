@@ -9,7 +9,7 @@ public:
 	{
 		Orthographic,
 		Perspective,
-		FixedOrtographic
+		UIMode
 	};
 
 	Camera();
@@ -20,8 +20,6 @@ public:
 	void setMode(Mode mode);
 	void setFov(float fov);
 	void setZExtremes(float min, float max);
-	void setUIMode();
-	void setFreeMode();
 protected:
 	glm::mat4 renderSelf(const glm::mat4& model) const override;
 private:

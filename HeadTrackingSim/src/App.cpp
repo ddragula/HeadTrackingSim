@@ -7,7 +7,7 @@
 
 App* App::instance = nullptr;
 
-App::App() : running(true), width(800), height(600), frameCap(1.0 / 60.0)
+App::App() : running(true), width(800), height(600), frameCap(1.0 / 60.0), ready(false)
 {
 	Debug::log("GLFW initialization has started");
 	if (!glfwInit())
@@ -20,7 +20,6 @@ App::App() : running(true), width(800), height(600), frameCap(1.0 / 60.0)
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-	glfwWindowHint(GLFW_SAMPLES, 4);
 	
 #ifdef __APPLE__
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
@@ -61,6 +60,7 @@ void App::loop()
 {
 	Time::start(glfwGetTime());
 
+	ready = true;
 	while (running)
 	{
 		Time::frame(glfwGetTime());
@@ -80,6 +80,7 @@ void App::loop()
 
 		Time::frameCap(frameCap);
 	}
+	ready = false;
 }
 
 void App::update()

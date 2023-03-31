@@ -86,6 +86,7 @@
   <ItemGroup>
     <ClCompile Include="src\App.cpp" />
     <ClCompile Include="src\graphics\objects\Camera.cpp" />
+    <ClCompile Include="src\graphics\objects\models\Crosshair.cpp" />
     <ClCompile Include="src\graphics\VertexArray.cpp" />
     <ClCompile Include="src\graphics\Shader.cpp" />
     <ClCompile Include="src\gui\CameraWindow.cpp" />
@@ -116,7 +117,7 @@
   <ItemGroup>
     <ClInclude Include="src\App.h" />
     <ClInclude Include="src\graphics\objects\Camera.h" />
-    <ClInclude Include="src\graphics\objects\models\Line.h" />
+    <ClInclude Include="src\graphics\objects\models\Crosshair.h" />
     <ClInclude Include="src\graphics\objects\models\models.h" />
     <ClInclude Include="src\graphics\VertexArray.h" />
     <ClInclude Include="src\graphics\Shader.h" />
