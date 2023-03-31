@@ -108,7 +108,7 @@
     <ClCompile Include="src\vendor\imgui\imgui_tables.cpp" />
     <ClCompile Include="src\vendor\imgui\imgui_widgets.cpp" />
     <ClCompile Include="src\graphics\objects\models\Cube.cpp" />
-    <ClCompile Include="src\graphics\objects\models\Model.cpp" />
+    <ClCompile Include="src\graphics\objects\Model.cpp" />
     <ClCompile Include="src\graphics\objects\models\Plane.cpp" />
     <ClCompile Include="src\graphics\objects\Object.cpp" />
     <ClCompile Include="src\world\World.cpp" />
@@ -116,6 +116,7 @@
   <ItemGroup>
     <ClInclude Include="src\App.h" />
     <ClInclude Include="src\graphics\objects\Camera.h" />
+    <ClInclude Include="src\graphics\objects\models\Line.h" />
     <ClInclude Include="src\graphics\objects\models\models.h" />
     <ClInclude Include="src\graphics\VertexArray.h" />
     <ClInclude Include="src\graphics\Shader.h" />
@@ -129,7 +130,7 @@
     <ClInclude Include="src\utils\Debug.h" />
     <ClInclude Include="src\utils\FileUtils.h" />
     <ClInclude Include="src\graphics\objects\models\Cube.h" />
-    <ClInclude Include="src\graphics\objects\models\Model.h" />
+    <ClInclude Include="src\graphics\objects\Model.h" />
     <ClInclude Include="src\graphics\objects\models\Plane.h" />
     <ClInclude Include="src\graphics\objects\Object.h" />
     <ClInclude Include="src\Time.h" />

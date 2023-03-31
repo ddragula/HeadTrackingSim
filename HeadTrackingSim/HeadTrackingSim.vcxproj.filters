@@ -129,7 +129,7 @@
     <ClCompile Include="src\graphics\VertexArray.cpp">
       <Filter>Pliki źródłowe\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\objects\models\Model.cpp">
+    <ClCompile Include="src\graphics\objects\Model.cpp">
       <Filter>Pliki źródłowe\graphics\objects\models</Filter>
     </ClCompile>
     <ClCompile Include="src\graphics\objects\Object.cpp">
@@ -191,7 +191,7 @@
     <ClInclude Include="src\graphics\objects\Object.h">
       <Filter>Pliki nagłówkowe\graphics\objects</Filter>
     </ClInclude>
-    <ClInclude Include="src\graphics\objects\models\Model.h">
+    <ClInclude Include="src\graphics\objects\Model.h">
       <Filter>Pliki nagłówkowe\graphics\objects\models</Filter>
     </ClInclude>
     <ClInclude Include="src\graphics\objects\models\Plane.h">
@@ -216,6 +216,9 @@
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
     <ClInclude Include="src\vendor\nlohmann\json.hpp">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="src\graphics\objects\models\Line.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>

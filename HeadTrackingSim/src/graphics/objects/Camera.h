@@ -8,7 +8,8 @@ public:
 	enum Mode
 	{
 		Orthographic,
-		Perspective
+		Perspective,
+		FixedOrtographic
 	};
 
 	Camera();
@@ -19,13 +20,13 @@ public:
 	void setMode(Mode mode);
 	void setFov(float fov);
 	void setZExtremes(float min, float max);
-	void setOrthoBox(float left, float right, float bottom, float top);
+	void setUIMode();
+	void setFreeMode();
 protected:
 	glm::mat4 renderSelf(const glm::mat4& model) const override;
 private:
 	float fov;
 	float minv, maxv;
-	glm::vec4 orthoBoxSize;
 	static const glm::vec3 FRONT;
 	static const glm::vec3 UP;
 	Mode mode;

@@ -29,7 +29,7 @@ void World::update()
 void World::render() const
 {
 	camera->render();
-	camera->setMode(Camera::Orthographic);
+	camera->setMode(Camera::FixedOrtographic);
 	mandelbrotPlane->render();
 }
 

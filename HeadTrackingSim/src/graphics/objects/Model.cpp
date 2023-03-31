@@ -1,7 +1,7 @@
 #include "Model.h"
 
-#include "../../../App.h"
-#include "../../../utils/Debug.h"
+#include "../../App.h"
+#include "../../utils/Debug.h"
 
 Model::Model() : Model("Unnamed Model", nullptr, nullptr) {}
 

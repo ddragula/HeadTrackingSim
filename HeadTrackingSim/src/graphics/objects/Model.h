@@ -1,8 +1,8 @@
 #pragma once
 
-#include "../Object.h"
-#include "../../Shader.h"
-#include "../../VertexArray.h"
+#include "Object.h"
+#include "../Shader.h"
+#include "../VertexArray.h"
 
 class Model : public Object
 {
