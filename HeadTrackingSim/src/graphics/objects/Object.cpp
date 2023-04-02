@@ -9,6 +9,14 @@ Object::Object(const std::string& name) : Object(name, glm::vec3(0.0f, 0.0f, 0.0
 Object::Object(const std::string& name, const glm::vec3& position, const glm::vec3& rotation)
 	: name(name), position(position), rotation(rotation), parent(nullptr), children(), enabled(true), scale_(1.0f, 1.0f, 1.0f) {}
 
+Object::~Object()
+{
+	for (Object* child : children)
+	{
+		delete child;
+	}
+}
+
 const std::string& Object::getName() const
 {
 	return this->name;

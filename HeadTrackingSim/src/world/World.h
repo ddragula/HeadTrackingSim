@@ -16,12 +16,12 @@ public:
 	void truncate();
 
 	Camera* getCamera() const;
+	bool* enableCubes;
 private:
-	Plane* mandelbrotPlane;
-	Plane* fadePlane;
 	Camera* camera;
 	Crosshair* crosshair;
-	Object* parent;
-	RegularPolygon* polygon;
-	std::vector<Cube*> cubes;
+	Object* circles;
+	RegularPolygon* aim;
+	RegularPolygon* preAim;
+	Object* cubes;
 };

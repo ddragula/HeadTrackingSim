@@ -18,6 +18,7 @@ public:
 	Object();
 	Object(const std::string& name);
 	Object(const std::string& name, const glm::vec3& position, const glm::vec3& rotation);
+	~Object();
 
 	const ObjectType type = ObjectType::Empty;
 	const std::string& getName() const;

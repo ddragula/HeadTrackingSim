@@ -4,7 +4,11 @@
 
 Cube::Cube() : Cube("Unnamed Cube", { 1.0f, 1.0f, 1.0f }) {}
 
-Cube::Cube(const std::string& name, const glm::vec3& size) : Model(name, { 0.0f, 0.0f, 0.0f }, { 0.0f, 0.0f, 0.0f }), size(size)
+Cube::Cube(const std::string& name, const glm::vec3& size) : Cube(name, size, { 0.0f, 0.0f, 0.0f })
+{
+}
+
+Cube::Cube(const std::string& name, const glm::vec3& size, const glm::vec3& position) : Model(name, position, { 0.0f, 0.0f, 0.0f }), size(size)
 {
 	create();
 }
