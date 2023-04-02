@@ -49,8 +49,8 @@ VertexArray::VertexArray(float vertices[], size_t verticesSize, unsigned int ind
 	glBindVertexArray(0);
 }
 
-VertexArray::VertexArray(float vertices[], size_t verticesSize, float uv[], size_t uvSize, DrawMode mode)
-	: VertexArray(vertices, verticesSize, nullptr, 0, uv, uvSize, mode)
+VertexArray::VertexArray(float vertices[], size_t verticesSize, unsigned int indices[], size_t indicesSize, DrawMode mode)
+	: VertexArray(vertices, verticesSize, indices, indicesSize, nullptr, 0, mode)
 {}
 
 VertexArray::VertexArray(float vertices[], size_t verticesSize, DrawMode mode)

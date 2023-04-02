@@ -48,8 +48,7 @@ public:
 
 	glm::mat4 modelTransform(const glm::mat4& model) const;
 protected:
-	virtual void beforeRender();
-	virtual glm::mat4 renderSelf(const glm::mat4& model) const;
+	virtual glm::mat4 renderSelf(const glm::mat4& model);
 	bool canBeParentOf(const Object* object) const;
 	const std::string name;
 	glm::vec3 position;

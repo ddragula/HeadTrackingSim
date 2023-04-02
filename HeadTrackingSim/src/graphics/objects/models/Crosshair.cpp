@@ -1,10 +1,9 @@
 #include "Crosshair.h"
 
 #include "../../../registry/ShadersRegistry.h"
-#include "../../../utils/Debug.h"
 #include "../../../App.h"
 
-Crosshair::Crosshair() : Crosshair("crosshair", { 0.0f, 0.0f }, 2.0f) {}
+Crosshair::Crosshair() : Crosshair("crosshair", { 0.0f, 0.0f }, 3.0f) {}
 
 Crosshair::Crosshair(const std::string& name, const glm::vec2 position, float size)
 	: Crosshair(name, { position.x, position.y, 0.0f }, { 0.0f, 0.0f, 0.0f }, size) {}
@@ -39,9 +38,9 @@ void Crosshair::create()
 {
 	float vertices[] = {
 		-size - 1.0f, 0.0f, 0.0f,
-		 size, 0.0f, 0.0f,
-		 0.0f, -size, 0.0f,
-		 0.0f,  size + 1, 0.0f,
+		size, 0.0f, 0.0f,
+		0.0f, -size, 0.0f,
+		0.0f,  size + 1, 0.0f,
 	};
 
 	setVertexArray(new VertexArray(vertices, sizeof(vertices), VertexArray::Lines));

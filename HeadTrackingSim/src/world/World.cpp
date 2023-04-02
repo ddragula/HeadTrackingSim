@@ -15,10 +15,14 @@ void World::start()
 		camera->setPosition({ 0.0f, 0.0f, 2.0f });
 	}
 
-	mandelbrotPlane = new Plane("plane", { 1.0f, 1.0f }, { 0.0f, 0.0f, 0.0f }, { 0.0f, 0.0f, 0.0f });
-	mandelbrotPlane->setShader(ShadersRegistry::get("color"));
-	
+	//mandelbrotPlane = new Plane("plane", { 1.0f, 1.0f }, { 0.0f, 0.0f, 0.0f }, { 0.0f, 0.0f, 0.0f });
+	//mandelbrotPlane->setShader(ShadersRegistry::get("mandelbrot"));
+
 	crosshair = new Crosshair();
+	crosshair->setColor({ 1.0f, 1.0f, 1.0f });
+
+	polygon = new RegularPolygon("Polygon", { 0.0f, 0.0f, 0.0f }, { 0.0f, 0.0f, 0.0f }, 6);
+	polygon->setEnabled(true);
 }
 
 void World::update()
@@ -29,16 +33,12 @@ void World::update()
 void World::render() const
 {
 	// ========= PERSPECTIVE =========
-	camera->setMode(Camera::Perspective);
-	ShadersRegistry::get("color")->setUniform3f("color", { 1.0f, 0.0f, 1.0f });
-
-	mandelbrotPlane->render();
+	camera->setMode(Camera::Orthographic);
+	polygon->render();
 
 	
 	// ==== FIXED ORTOGRAPHIC UI =====
 	camera->setMode(Camera::UIMode);
-	ShadersRegistry::get("color")->setUniform3f("color", { 0.0f, 1.0f, 0.0f });
-
 	crosshair->render();
 }
 

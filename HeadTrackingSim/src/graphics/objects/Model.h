@@ -15,7 +15,8 @@ public:
 
 	const ObjectType type = ObjectType::Model;
 protected:
-	virtual glm::mat4 renderSelf(const glm::mat4& model) const override;
+	virtual void beforeRender();
+	virtual glm::mat4 renderSelf(const glm::mat4& model) override;
 	void setVertexArray(VertexArray* vertexArray);
 	void setShader(Shader* shader);
 	VertexArray* vertexArray;

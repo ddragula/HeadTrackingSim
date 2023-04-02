@@ -28,7 +28,7 @@ void Camera::setZExtremes(float min, float max)
 	this->maxv = max;
 }
 
-glm::mat4 Camera::renderSelf(const glm::mat4& model) const
+glm::mat4 Camera::renderSelf(const glm::mat4& model)
 {
 	const auto& nm = modelTransform(model);
 

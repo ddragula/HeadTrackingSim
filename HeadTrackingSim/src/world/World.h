@@ -22,5 +22,6 @@ private:
 	Camera* camera;
 	Crosshair* crosshair;
 	Object* parent;
+	RegularPolygon* polygon;
 	std::vector<Cube*> cubes;
 };

@@ -15,7 +15,7 @@ public:
 public:
 	VertexArray();
 	VertexArray(float vertices[], size_t verticesSize, unsigned int indices[], size_t indicesSize, float uv[], size_t uvSize, DrawMode mode);
-	VertexArray(float vertices[], size_t verticesSize, float uv[], size_t uvSize, DrawMode mode);
+	VertexArray(float vertices[], size_t verticesSize, unsigned int indices[], size_t indicesSize, DrawMode mode);
 	VertexArray(float vertices[], size_t uvSize, DrawMode mode);
 	void bind();
 	void unbind();

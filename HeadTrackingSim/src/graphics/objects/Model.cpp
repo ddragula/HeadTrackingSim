@@ -26,12 +26,18 @@ void Model::setShader(Shader* shader)
 	this->shader = shader;
 }
 
-glm::mat4 Model::renderSelf(const glm::mat4& model) const
+void Model::beforeRender()
+{
+}
+
+glm::mat4 Model::renderSelf(const glm::mat4& model)
 {
 	glm::mat4 nm = modelTransform(model);
 
 	shader->enable();
 	shader->setUniformMx4f("model", glm::scale(nm, scale_));
+
+	beforeRender();
 	vertexArray->render();
 
 	return nm;

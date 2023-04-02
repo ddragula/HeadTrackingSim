@@ -45,5 +45,5 @@ void Plane::create()
 		1.0f, 1.0f
 	};
 
-	setVertexArray(new VertexArray(vertices, sizeof(vertices), indices, sizeof(indices), uv, sizeof(uv), VertexArray::Lines));
+	setVertexArray(new VertexArray(vertices, sizeof(vertices), indices, sizeof(indices), uv, sizeof(uv), VertexArray::Solid));
 }

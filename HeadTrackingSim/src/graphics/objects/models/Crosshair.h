@@ -14,6 +14,6 @@ public:
 private:
 	virtual void beforeRender() override;
 	void create();
-	float size;
+	const float size;
 	glm::vec3 color;
 };

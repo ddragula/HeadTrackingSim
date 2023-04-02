@@ -114,11 +114,7 @@ unsigned int Object::getChildrenAmount() const
 	return this->children.size();
 }
 
-void Object::beforeRender()
-{
-}
-
-glm::mat4 Object::renderSelf(const glm::mat4& model) const
+glm::mat4 Object::renderSelf(const glm::mat4& model)
 {
 	return modelTransform(model);
 }
@@ -132,7 +128,6 @@ void Object::render(const glm::mat4& model)
 {
 	if (isEnabled())
 	{
-		beforeRender();
 		const glm::mat4 nm = renderSelf(model);
 		for (const auto child : children)
 		{
