@@ -24,4 +24,5 @@ private:
 	RegularPolygon* aim;
 	RegularPolygon* preAim;
 	Object* cubes;
+	Cube* mandelbrot;
 };
