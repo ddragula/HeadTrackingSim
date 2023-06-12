@@ -33,6 +33,14 @@ void CameraWindow::update()
 		ImGui::SliderFloat("rx", &rot_x, -180.0f, 180.0f);
 		ImGui::SliderFloat("ry", &rot_y, -180.0f, 180.0f);
 		ImGui::SliderFloat("rz", &rot_z, -180.0f, 180.0f);
+		if (ImGui::Button("Reset Position")) {
+			rot_x = 0.0f;
+			rot_y = 0.0f;
+			rot_z = 0.0f;
+			pos_x = 0.0f;
+			pos_y = 0.0f;
+			pos_z = 2.0f;
+		}
 		ImGui::End();
 
 		camera->setRotation({ rot_x, rot_y, rot_z });
