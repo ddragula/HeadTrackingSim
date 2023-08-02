@@ -114,7 +114,6 @@
     <ClCompile Include="src\graphics\objects\models\Plane.cpp" />
     <ClCompile Include="src\graphics\objects\Object.cpp" />
     <ClCompile Include="src\world\World.cpp" />
-    <ClCompile Include="src\udp\UDPReceiver.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\App.h" />
@@ -140,7 +139,6 @@
     <ClInclude Include="src\Time.h" />
     <ClInclude Include="src\vendor\nlohmann\json.hpp" />
     <ClInclude Include="src\world\World.h" />
-    <ClInclude Include="src\udp\UDPReceiver.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders.json" />

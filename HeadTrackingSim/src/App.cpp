@@ -7,7 +7,7 @@
 
 App* App::instance = nullptr;
 
-App::App() : running(true), width(800), height(600), frameCap(1.0 / 60.0), ready(false)
+App::App() : running(true), width(800), height(600), frameCap(1.0 / 60.0)
 {
 	Debug::log("GLFW initialization has started");
 	if (!glfwInit())
@@ -60,7 +60,6 @@ void App::loop()
 {
 	Time::start(glfwGetTime());
 
-	ready = true;
 	while (running)
 	{
 		Time::frame(glfwGetTime());
@@ -80,7 +79,6 @@ void App::loop()
 
 		Time::frameCap(frameCap);
 	}
-	ready = false;
 }
 
 void App::update()
@@ -148,6 +146,11 @@ int App::getHeight() const
 const World* App::getWorld() const
 {
 	return &world;
+}
+
+bool App::isRunning() const
+{
+	return running;
 }
 
 void App::frameBufferResize(GLFWwindow* window, const int width, const int height)

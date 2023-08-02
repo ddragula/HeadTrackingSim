@@ -17,6 +17,8 @@ public:
 	int getWidth() const;
 	int getHeight() const;
 	const World* getWorld() const;
+	bool isRunning() const;
+	glm::vec3 udpVector = { 0.0f, 0.0f, 0.0f };
 private:
 	GLFWwindow* window;
 	void update();
@@ -28,12 +30,10 @@ private:
 	Gui gui;
 	World world;
 	double frameCap;
-	bool ready;
 public:
 	static App* create();
 	static App* getInstance();
 	static void terminate();
 	static void frameBufferResize(GLFWwindow* window, int width, int height);
 	static void invokeInput(GLFWwindow* window, int key, int scancode, int action, int mods);
-	static bool isReady();
 };

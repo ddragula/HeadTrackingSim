@@ -3,14 +3,13 @@
 #include "../registry/ShadersRegistry.h"
 #include "../utils/Debug.h"
 #include "../Time.h"
+#include "../App.h"
 
 World::World() = default;
 
 void World::start()
 {
 	srand(time(0));
-
-	udp = new UDPReceiver(8080);
 
 	camera = new Camera("Camera");
 	camera->setPosition({ 0.0f, 0.0f, 2.0f });
@@ -42,12 +41,14 @@ void World::start()
 
 void World::update()
 {
-	glm::vec3 rawCamPos = udp->receivePositionVector(); // TODO: move it to new thread.
-	float x = rawCamPos.x / 100.0f;
-	float y = rawCamPos.y / 100.0f;
-	float z = (rawCamPos.z - 700.0f) / 100.0f;
+	const auto udpVector = App::getInstance()->udpVector;
+
+	float x = udpVector.x / 100.0f;
+	float y = udpVector.y / 100.0f;
+	float z = (udpVector.z - 700.0f) / 100.0f;
 
 	camera->setPosition(glm::vec3(-x, -y, z));
+	
 
 	cubes->setEnabled(*enableCubes);
 }

@@ -2,7 +2,6 @@
 
 #include "../graphics/objects/Camera.h"
 #include "../graphics/objects/models/models.h"
-#include "../udp/UDPReceiver.h"
 
 #include <vector>
 
@@ -19,7 +18,6 @@ public:
 	Camera* getCamera() const;
 	bool* enableCubes;
 private:
-	UDPReceiver* udp;
 	Camera* camera;
 	Crosshair* crosshair;
 	Object* circles;
