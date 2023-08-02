@@ -10,6 +10,6 @@ public:
 	void update() override;
 private:
 	Camera* camera;
-	float pos_x, pos_y, pos_z;
-	float rot_x, rot_y, rot_z;
+	float tra_x, tra_y, tra_z;
+	float mul_x, mul_y, mul_z;
 };

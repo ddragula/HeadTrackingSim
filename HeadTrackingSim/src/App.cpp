@@ -81,6 +81,20 @@ void App::loop()
 	}
 }
 
+nlohmann::json App::getConfigJson()
+{
+	nlohmann::json json;
+
+	json["sensitivity"]["x"] = configMultiplier.x;
+	json["sensitivity"]["y"] = configMultiplier.y;
+	json["sensitivity"]["z"] = configMultiplier.z;
+	json["cameraOffset"]["x"] = configTranslation.x;
+	json["cameraOffset"]["y"] = configTranslation.y;
+	json["cameraOffset"]["z"] = configTranslation.z;
+
+	return json;
+}
+
 void App::update()
 {
 	glfwPollEvents();

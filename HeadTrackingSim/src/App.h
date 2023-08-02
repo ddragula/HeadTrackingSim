@@ -1,6 +1,7 @@
 #pragma once
 
 #include <GLFW/glfw3.h>
+#include <nlohmann/json.hpp>
 
 #include "Input.h"
 #include "gui/Gui.h"
@@ -18,7 +19,10 @@ public:
 	int getHeight() const;
 	const World* getWorld() const;
 	bool isRunning() const;
+	glm::vec3 configTranslation = { 0.0f, 0.0f, -7.0f };
+	glm::vec3 configMultiplier = { 0.01f, 0.01f, 0.01f };
 	glm::vec3 udpVector = { 0.0f, 0.0f, 0.0f };
+	nlohmann::json getConfigJson();
 private:
 	GLFWwindow* window;
 	void update();

@@ -1,6 +1,8 @@
 #include "CameraWindow.h"
 
+#include <fstream>
 #include "../App.h"
+#include "../utils/Debug.h"
 
 CameraWindow::CameraWindow()
 {
@@ -8,42 +10,38 @@ CameraWindow::CameraWindow()
 
 void CameraWindow::update()
 {
-	if (!camera)
-	{
-		camera = App::getInstance()->getWorld()->getCamera();
-		const auto position = camera->getPosition();
-		pos_x = position.x;
-		pos_y = position.y;
-		pos_z = position.z;
-
-		const auto rotation = camera->getRotation();
-		rot_x = rotation.x;
-		rot_y = rotation.y;
-		rot_z = rotation.z;
-	}
+	const auto app = App::getInstance();
 
 	if (show)
 	{
-		ImGui::Begin("Camera", &show);
-		ImGui::Text("Position:");
-		ImGui::SliderFloat("x", &pos_x, -10.0f, 10.0f);
-		ImGui::SliderFloat("y", &pos_y, -10.0f, 10.0f);
-		ImGui::SliderFloat("z", &pos_z, -10.0f, 10.0f);
-		ImGui::Text("Rotation:");
-		ImGui::SliderFloat("rx", &rot_x, -180.0f, 180.0f);
-		ImGui::SliderFloat("ry", &rot_y, -180.0f, 180.0f);
-		ImGui::SliderFloat("rz", &rot_z, -180.0f, 180.0f);
-		if (ImGui::Button("Reset Position")) {
-			rot_x = 0.0f;
-			rot_y = 0.0f;
-			rot_z = 0.0f;
-			pos_x = 0.0f;
-			pos_y = 0.0f;
-			pos_z = 2.0f;
+		ImGui::Begin("Camera Translation Configuration", &show);
+		ImGui::Text("Position Displacement:");
+		ImGui::SliderFloat("tx", &app->configTranslation.x, -10.0f, 10.0f);
+		ImGui::SliderFloat("ty", &app->configTranslation.y, -10.0f, 10.0f);
+		ImGui::SliderFloat("tz", &app->configTranslation.z, -20.0f, 20.0f);
+		ImGui::Text("Position Scale Multiplier:");
+		ImGui::SliderFloat("mx", &app->configMultiplier.x, 0.05f, 0.001f);
+		ImGui::SliderFloat("my", &app->configMultiplier.y, 0.05f, 0.001f);
+		ImGui::SliderFloat("mz", &app->configMultiplier.z, 0.05f, 0.001f);
+
+		if (ImGui::Button("Reset Configuration")) {
+			app->configTranslation.x = 0.0f;
+			app->configTranslation.y = 0.0f;
+			app->configTranslation.z = -7.0f;
+			app->configMultiplier.x = 0.01f;
+			app->configMultiplier.y = 0.01f;
+			app->configMultiplier.z = 0.01f;
+		}
+
+		if (ImGui::Button("Save Configuration")) {
+			auto textJson = nlohmann::to_string(app->getConfigJson());
+			std::ofstream oFile("config.json");
+			if (oFile.is_open()) {
+				oFile.write(textJson.c_str(), textJson.length());
+			}
+			oFile.close();
+			Debug::log("Config file saved as 'config.json'");
 		}
 		ImGui::End();
-
-		camera->setRotation({ rot_x, rot_y, rot_z });
-		camera->setPosition({ pos_x, pos_y, pos_z });
 	}
 }

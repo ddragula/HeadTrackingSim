@@ -41,15 +41,14 @@ void World::start()
 
 void World::update()
 {
-	const auto udpVector = App::getInstance()->udpVector;
+	const auto app = App::getInstance();
 
-	float x = udpVector.x / 100.0f;
-	float y = udpVector.y / 100.0f;
-	float z = (udpVector.z - 700.0f) / 100.0f;
-
-	camera->setPosition(glm::vec3(-x, -y, z));
+	camera->setPosition(glm::vec3(
+		-app->udpVector.x * app->configMultiplier.x + app->configTranslation.x,
+		-app->udpVector.y * app->configMultiplier.y + app->configTranslation.y,
+		app->udpVector.z * app->configMultiplier.z + app->configTranslation.z
+	));
 	
-
 	cubes->setEnabled(*enableCubes);
 }
 
